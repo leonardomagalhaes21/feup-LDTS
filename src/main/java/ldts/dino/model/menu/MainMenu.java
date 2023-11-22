@@ -6,9 +6,8 @@ public class MainMenu extends Menu {
     public MainMenu() {
         this.entries = Arrays.asList("Start", "Instructions", "Leaderboard", "Exit");
     }
-    public boolean isSelectedStart() {
-        return isSelected(0);
-    }
+
+    public boolean isSelectedStart() { return isSelected(0); }
     public boolean isSelectedInstructions() {
         return isSelected(1);
     }

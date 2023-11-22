@@ -14,7 +14,7 @@ public class Game {
     public Game() throws IOException {
         this.gui = new LanternaGUI();
         this.state = new MainMenuState(new MainMenu());
-        //TODO: initialize state
+        //TODO
     }
 
     public static void main(String[] args) throws IOException, InterruptedException {

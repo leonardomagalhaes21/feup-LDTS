@@ -9,7 +9,6 @@ public class MainMenuController extends MenuController<MainMenu> {
         super(menu);
     }
 
-    @Override
     public void entrySelected(Game game) {
         if(getModel().isSelectedStart()) System.out.println("Começa o jogo!!");
         if(getModel().isSelectedInstructions()) System.out.println("Intruções");
