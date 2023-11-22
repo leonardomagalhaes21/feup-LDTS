@@ -6,7 +6,7 @@ import ldts.dino.utils.Position;
 public class MainMenuViewer extends MenuViewer<MainMenu>{
 
     public MainMenuViewer(MainMenu mainMenu) {
-        super(mainMenu, new Position(20, 17));
+        super(mainMenu, new Position(25, 17));
     }
 
 

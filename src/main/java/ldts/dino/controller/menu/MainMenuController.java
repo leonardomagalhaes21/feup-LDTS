@@ -12,7 +12,7 @@ public class MainMenuController extends MenuController<MainMenu> {
     public void entrySelected(Game game) {
         if(getModel().isSelectedStart()) System.out.println("Começa o jogo!!");
         if(getModel().isSelectedInstructions()) System.out.println("Intruções");
-        if(getModel().isSelectedLeaderboard()) System.out.println("Leaderboard");
+        if(getModel().isSelectedLeaderboard()) System.out.println("Top Score");
         if(getModel().isSelectedExit()) game.setState(null);
     }
 
