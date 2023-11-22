@@ -10,18 +10,23 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
+import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import ldts.dino.utils.Position;
-import ldts.dino.viewer.Colors;
 
+import java.awt.*;
+import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 public class LanternaGUI implements GUI {
     private final Screen screen;
     private static final int WIDTH = 60, HEIGHT = 40, FONT_SIZE = 16;
 
 
-    public LanternaGUI() throws IOException {
-        Terminal terminal = createTerminal();
+    public LanternaGUI() throws IOException, URISyntaxException, FontFormatException {
+        AWTTerminalFontConfiguration fontConfig = loadSquareFont();
+        Terminal terminal = createTerminal(WIDTH, HEIGHT, fontConfig);
         this.screen = createScreen(terminal);
     }
 
@@ -35,10 +40,11 @@ public class LanternaGUI implements GUI {
         return screen;
     }
 
-    private Terminal createTerminal() throws IOException {
+    private Terminal createTerminal(int width, int height, AWTTerminalFontConfiguration fontConfig) throws IOException {
         TerminalSize terminalSize = new TerminalSize(WIDTH, HEIGHT + 1);
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
         terminalFactory.setForceAWTOverSwing(true);
+        terminalFactory.setTerminalEmulatorFontConfiguration(fontConfig);
         return terminalFactory.createTerminal();
     }
 
@@ -88,4 +94,19 @@ public class LanternaGUI implements GUI {
         tg.setBackgroundColor(TextColor.Factory.fromString(backgroundColor));
         tg.putString(position.getX(), position.getY(), text);
     }
+
+    private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
+        URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
+        //TODO tentar mudar a fonte para outra
+        File fontFile = new File(resource.toURI());
+        Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
+
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        ge.registerFont(font);
+
+        Font loadedFont = font.deriveFont(Font.PLAIN, 25);
+        AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
+        return fontConfig;
+    }
 }
+

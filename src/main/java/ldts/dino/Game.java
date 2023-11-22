@@ -5,19 +5,21 @@ import ldts.dino.model.menu.MainMenu;
 import ldts.dino.state.MainMenuState;
 import ldts.dino.state.State;
 
+import java.awt.*;
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class Game {
     private final LanternaGUI gui;
     private State state;
 
-    public Game() throws IOException {
+    public Game() throws IOException, URISyntaxException, FontFormatException {
         this.gui = new LanternaGUI();
         this.state = new MainMenuState(new MainMenu());
         //TODO
     }
 
-    public static void main(String[] args) throws IOException, InterruptedException {
+    public static void main(String[] args) throws IOException, InterruptedException, URISyntaxException, FontFormatException {
         new Game().start();
     }
 
