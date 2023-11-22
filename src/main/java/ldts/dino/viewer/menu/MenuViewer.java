@@ -17,7 +17,7 @@ public abstract class MenuViewer<T extends Menu> extends Viewer<T> {
     }
 
     @Override
-    protected void drawElements(GUI gui) {
+    public void drawElements(GUI gui) {
         //draw the menu stuff
         gui.paintBackground(Colors.MENU_BACKGROUND.getHex());
 
