@@ -1,4 +1,4 @@
-package ldts.stickhero.gui;
+package ldts.dino.gui;
 
 import com.googlecode.lanterna.TerminalPosition;
 import com.googlecode.lanterna.TerminalSize;
@@ -10,7 +10,7 @@ import com.googlecode.lanterna.screen.Screen;
 import com.googlecode.lanterna.screen.TerminalScreen;
 import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
-import ldts.stickhero.viewer.Colors;
+import ldts.dino.viewer.Colors;
 
 import java.io.IOException;
 
@@ -53,6 +53,9 @@ public class LanternaGUI implements GUI {
 
         if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
 
+        if (keyStroke.getKeyType() == KeyType.Escape) return ACTION.BACK;
+
+
         return ACTION.NONE;
     }
 
@@ -90,6 +93,8 @@ public class LanternaGUI implements GUI {
         tg.setBackgroundColor(TextColor.Factory.fromString(color));
         tg.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(WIDTH, HEIGHT + 1), ' ');
         //first tower
+
+
         tg.setBackgroundColor(TextColor.Factory.fromString(Colors.BLACK.getHex()));
         tg.fillRectangle(new TerminalPosition(5, 25), new TerminalSize(11, HEIGHT + 1), ' ');
 
@@ -102,6 +107,8 @@ public class LanternaGUI implements GUI {
         //horizontal line
         tg.setBackgroundColor(TextColor.Factory.fromString(Colors.BROWN.getHex()));
         tg.drawLine(new TerminalPosition(15, 25), new TerminalPosition(45,25), ' ');
+        tg.setBackgroundColor(TextColor.Factory.fromString(Colors.ORANGE.getHex()));
+        tg.fillRectangle(new TerminalPosition(45,25), new TerminalSize(1,1), ' ');
 
     }
 

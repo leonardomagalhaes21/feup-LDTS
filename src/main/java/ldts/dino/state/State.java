@@ -1,9 +1,9 @@
-package ldts.stickhero.state;
+package ldts.dino.state;
 
-import ldts.stickhero.Game;
-import ldts.stickhero.controller.Controller;
-import ldts.stickhero.gui.GUI;
-import ldts.stickhero.viewer.Viewer;
+import ldts.dino.Game;
+import ldts.dino.controller.Controller;
+import ldts.dino.gui.GUI;
+import ldts.dino.viewer.Viewer;
 
 import java.io.IOException;
 

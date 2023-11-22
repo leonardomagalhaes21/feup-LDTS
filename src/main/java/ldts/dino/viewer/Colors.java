@@ -1,4 +1,4 @@
-package ldts.stickhero.viewer;
+package ldts.dino.viewer;
 
 public enum Colors {
     ORANGE("#FC6A03"),

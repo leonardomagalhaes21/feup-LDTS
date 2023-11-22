@@ -1,7 +1,7 @@
-package ldts.stickhero.controller;
+package ldts.dino.controller;
 
-import ldts.stickhero.Game;
-import ldts.stickhero.gui.GUI;
+import ldts.dino.Game;
+import ldts.dino.gui.GUI;
 
 public abstract class Controller<T> {
     private final T model;

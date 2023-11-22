@@ -1,9 +1,9 @@
-package ldts.stickhero;
+package ldts.dino;
 
-import ldts.stickhero.gui.LanternaGUI;
-import ldts.stickhero.model.menu.Menu;
-import ldts.stickhero.state.MenuState;
-import ldts.stickhero.state.State;
+import ldts.dino.gui.LanternaGUI;
+import ldts.dino.model.menu.MainMenu;
+import ldts.dino.state.MainMenuState;
+import ldts.dino.state.State;
 
 import java.io.IOException;
 
@@ -13,7 +13,7 @@ public class Game {
 
     public Game() throws IOException {
         this.gui = new LanternaGUI();
-        this.state = new MenuState(new Menu());
+        this.state = new MainMenuState(new MainMenu());
         //TODO: initialize state
     }
 

@@ -1,6 +1,4 @@
-package ldts.stickhero.gui;
-
-import com.googlecode.lanterna.input.KeyStroke;
+package ldts.dino.gui;
 
 import java.io.IOException;
 
@@ -12,5 +10,5 @@ public interface GUI {
 
     void paintBackground(String hashtag);
 
-    enum ACTION {UP, DOWN, NONE, QUIT, SELECT, SPACE}
+    enum ACTION {UP, DOWN, NONE, QUIT, SELECT, SPACE, BACK}
 }

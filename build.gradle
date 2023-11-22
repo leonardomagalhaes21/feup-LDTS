@@ -4,7 +4,7 @@ plugins {
     id 'info.solidsoft.pitest' version '1.6.0'
 }
 
-group = 'ldts.stickhero'
+group = 'ldts.dino'
 version = '1.0-SNAPSHOT'
 
 repositories {
@@ -16,7 +16,7 @@ pitest {
 }
 
 application {
-    mainClass.set('ldts.stickhero.Game')
+    mainClass.set('ldts.dino.Game')
 }
 
 dependencies {

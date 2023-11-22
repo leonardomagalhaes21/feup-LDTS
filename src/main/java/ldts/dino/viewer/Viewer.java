@@ -1,6 +1,6 @@
-package ldts.stickhero.viewer;
+package ldts.dino.viewer;
 
-import ldts.stickhero.gui.GUI;
+import ldts.dino.gui.GUI;
 
 import java.io.IOException;
 
