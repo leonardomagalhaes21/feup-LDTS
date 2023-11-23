@@ -21,12 +21,12 @@ import java.net.URL;
 
 public class LanternaGUI implements GUI {
     private final Screen screen;
-    private static final int WIDTH = 60, HEIGHT = 40, FONT_SIZE = 16;
+    private static final int WIDTH = 60, HEIGHT = 40, FONT_SIZE = 17;
 
 
     public LanternaGUI() throws IOException, URISyntaxException, FontFormatException {
         AWTTerminalFontConfiguration fontConfig = loadSquareFont();
-        Terminal terminal = createTerminal(WIDTH, HEIGHT, fontConfig);
+        Terminal terminal = createTerminal(fontConfig);
         this.screen = createScreen(terminal);
     }
 
@@ -40,7 +40,7 @@ public class LanternaGUI implements GUI {
         return screen;
     }
 
-    private Terminal createTerminal(int width, int height, AWTTerminalFontConfiguration fontConfig) throws IOException {
+    private Terminal createTerminal(AWTTerminalFontConfiguration fontConfig) throws IOException {
         TerminalSize terminalSize = new TerminalSize(WIDTH, HEIGHT + 1);
         DefaultTerminalFactory terminalFactory = new DefaultTerminalFactory().setInitialTerminalSize(terminalSize);
         terminalFactory.setForceAWTOverSwing(true);
@@ -109,4 +109,3 @@ public class LanternaGUI implements GUI {
         return fontConfig;
     }
 }
-
