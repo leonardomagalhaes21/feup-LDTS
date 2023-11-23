@@ -83,3 +83,86 @@ The use of the State Pattern in the current design allows the following benefits
 
 - John Doe: 40%
 - Jane Doe: 60%
+
+### UML DIAGRAM
+https://www.planttext.com/
+![TLFBRi8m43pZht1lhQhyG8GGKaiX4fH3qkUbCiwMMd8SP3jGXFhlzIClf-abySpQixFUzLnf8dLLS7Iblw00J8dSbIBQIt96Y7AY55uImr_G95eJeK4AidnAyBvYXaarqO2L_Q8VX9YDVn8As6wvMCfBz4-oui1D9g5LlSl8K0aWi78_Wr-I-smLOoDdm6gHB5TPWnwsZzb7chmlF64oa9tIab2DVIfdQPhDd726Yp87RbPtfT2ov1oaZT4.svg](..%2F..%2F..%2FDownloads%2FTLFBRi8m43pZht1lhQhyG8GGKaiX4fH3qkUbCiwMMd8SP3jGXFhlzIClf-abySpQixFUzLnf8dLLS7Iblw00J8dSbIBQIt96Y7AY55uImr_G95eJeK4AidnAyBvYXaarqO2L_Q8VX9YDVn8As6wvMCfBz4-oui1D9g5LlSl8K0aWi78_Wr-I-smLOoDdm6gHB5TPWnwsZzb7chmlF64oa9tIab2DVIfdQPhDd726Yp87RbPtfT2ov1oaZT4.svg)
+<details>
+
+```
+@startuml
+!theme carbon-gray
+
+class Game {
+	-LanternaGUI gui
+	-State state
+}
+
+interface GUI {
+}
+
+class LanternaGUI implements GUI {
+	-Screen screen
+	-WIDTH: int
+	-HEIGHT: int
+	-FONT_SIZE: int
+}
+
+abstract class State<T> {
+	-T model
+	-Controller<T> controller
+	-Viewer<T> viewer
+}
+
+class MainMenuState extends State {
+}
+
+abstract class Controller<T> {
+	-T model
+	+step()
+}
+
+interface MenuInterface {
+}
+
+abstract class MenuController extends Controller implements MenuInterface {
+	+@Override step()
+}
+
+class MainMenuController extends MenuController {
+	+entrySelected()
+}
+
+abstract class Menu {
+	-entries: List<String>
+	-currentEntry: String
+	+isSelected(): boolean
+}
+
+class MainMenu extends Menu {
+	+isSelectedStart()
+}
+
+abstract class Viewer<T> {
+	-T model
+	+draw()
+}
+
+abstract class MenuViewer extends Viewer {
+	-entriesX: int
+	-entriesY: int
+}
+
+class MainMenuViewer extends MenuViewer {
+}
+
+Game --> State
+Game --> LanternaGUI
+State --> Controller
+State --> Viewer
+MainMenuState --> MainMenu
+
+@enduml
+```
+
+</details>
