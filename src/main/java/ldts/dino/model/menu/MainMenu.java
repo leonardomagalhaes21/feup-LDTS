@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class MainMenu extends Menu {
     public MainMenu() {
-        this.entries = Arrays.asList("Start", "Instructions", "Leaderboard", "Exit");
+        this.entries = Arrays.asList("Start", "Instructions", "Top Score", "Exit");
     }
 
     public boolean isSelectedStart() { return isSelected(0); }
