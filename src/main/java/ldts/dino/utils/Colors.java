@@ -1,4 +1,4 @@
-package ldts.dino.viewer;
+package ldts.dino.utils;
 
 public enum Colors {
     ORANGE("#FC6A03"),

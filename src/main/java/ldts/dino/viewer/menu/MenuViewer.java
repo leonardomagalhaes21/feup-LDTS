@@ -3,7 +3,7 @@ package ldts.dino.viewer.menu;
 import ldts.dino.gui.GUI;
 import ldts.dino.model.menu.Menu;
 import ldts.dino.utils.Position;
-import ldts.dino.viewer.Colors;
+import ldts.dino.utils.Colors;
 import ldts.dino.viewer.Viewer;
 
 public abstract class MenuViewer<T extends Menu> extends Viewer<T> {

@@ -1,6 +1,6 @@
 ## LDTS_0603 - Dino
 
-This game is strongly inspired on the hidden Chrome browser game when there is no internet. The objective of the game is to control Dino avoiding colliding with obstacles (cactus and birds) coming from the right.
+This game is strongly inspired on the hidden Chrome browser game when there is no internet. The objective of the game is to control Dino avoiding colliding with obstacles (buildings,  cities and planes) coming from the right.
 There are collectables that, if you catch them, can help you to score more points. The points are counted by the distance you travelled since the start of the game.
 This project was developed by:
 - **Guilherme Silveira Rego** (up202207041)
@@ -23,12 +23,12 @@ Software Design and Testing Laboratory
     - **Instructions** - Displays the instructions of the game.
     - **Leaderboard** - Displays the highest scores.
     - **Exit** - Exits the game.
-- **Random obstacles** - We want to generate cactus and birds at random but logical positions.
+- **Random obstacles** - We want to generate buildings, cities and planes at random (but logical) positions.
 - **Collectables** -The game will have collectable objects that can be collected by the player:
-  - **Gun** - The gun will shot the closest obstacle to Dino, making it disappear.
+  - **Bomb** - If the player catches a bomb, it will be stored in his inventory to use whenever he wants. The bomb explodes the nearest obstacle.
   - **Shield** - Dino will be able to wear a shield that protects him for a short time. If he collides with an obstacle when he's wearing the shield, the player will not lose.
-  - **Higher Jump** - The game character will have a higher jump during a certain period of time.
-  - **Coin** - The coin will boost the player score.
+  - **Boots** - The game character will have a higher jump during a certain period of time.
+  - **Coin** - The coin will increase the player score.
 - **Collision detector** - It is important to make the game detect when Dino collides with the obstacles so that we can know when the player lost or caught a collectable.
 - **Music and sound effects** - Our idea is to implement background music and sound effects for the game.
 - **Game Over** - The game needs to display a game over screen when the player collides with an obstacles. The player will have two options:
@@ -41,7 +41,7 @@ Software Design and Testing Laboratory
 
 **Problem in Context**
 
-The game involves various collectables (Gun, Shield, Higher Jump, Coin) with different behaviors. It needs a way to encapsulate these behaviors independently and allow for dynamic selection during runtime.
+The game involves various collectables (Bomb, Shield, Boots and Coin) with different behaviors. It needs a way to encapsulate these behaviors independently and allow for dynamic selection during runtime.
 
 **The Pattern**
 

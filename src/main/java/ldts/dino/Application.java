@@ -9,18 +9,18 @@ import java.awt.*;
 import java.io.IOException;
 import java.net.URISyntaxException;
 
-public class Game {
+public class Application {
     private final LanternaGUI gui;
     private State state;
 
-    public Game() throws IOException, URISyntaxException, FontFormatException {
+    public Application() throws IOException, URISyntaxException, FontFormatException {
         this.gui = new LanternaGUI();
         this.state = new MainMenuState(new MainMenu());
         //TODO
     }
 
     public static void main(String[] args) throws IOException, InterruptedException, URISyntaxException, FontFormatException {
-        new Game().start();
+        new Application().start();
     }
 
     public void setState(State state) {
