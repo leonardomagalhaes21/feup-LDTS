@@ -1,8 +1,8 @@
 package ldts.dino.controller.menu;
 
-import ldts.dino.Game;
+import ldts.dino.Application;
 
 public interface MenuInterface {
-    void entrySelected(Game game);
-    void backSelected(Game game);
+    void entrySelected(Application application);
+    void backSelected(Application application);
 }

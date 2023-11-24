@@ -1,6 +1,6 @@
 package ldts.dino.controller;
 
-import ldts.dino.Game;
+import ldts.dino.Application;
 import ldts.dino.gui.GUI;
 
 public abstract class Controller<T> {
@@ -14,5 +14,5 @@ public abstract class Controller<T> {
         return model;
     }
 
-    public abstract void step(Game game, GUI.ACTION action, long time);
+    public abstract void step(Application application, GUI.ACTION action, long time);
 }

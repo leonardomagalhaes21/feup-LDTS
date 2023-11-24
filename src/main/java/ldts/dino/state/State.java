@@ -1,6 +1,6 @@
 package ldts.dino.state;
 
-import ldts.dino.Game;
+import ldts.dino.Application;
 import ldts.dino.controller.Controller;
 import ldts.dino.gui.GUI;
 import ldts.dino.viewer.Viewer;
@@ -26,9 +26,9 @@ public abstract class State<T> {
         return model;
     }
 
-    public void step(Game game, GUI gui, long time) throws IOException {
+    public void step(Application application, GUI gui, long time) throws IOException {
         GUI.ACTION action = gui.getNextAction();
-        controller.step(game, action, time);
+        controller.step(application, action, time);
         viewer.draw(gui);
     }
 

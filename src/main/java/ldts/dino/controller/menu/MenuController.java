@@ -1,6 +1,6 @@
 package ldts.dino.controller.menu;
 
-import ldts.dino.Game;
+import ldts.dino.Application;
 import ldts.dino.controller.Controller;
 import ldts.dino.gui.GUI;
 import ldts.dino.model.menu.Menu;
@@ -11,7 +11,7 @@ public abstract class MenuController<T extends Menu> extends Controller<T> imple
     }
 
     @Override
-    public void step(Game game, GUI.ACTION action, long time) {
+    public void step(Application application, GUI.ACTION action, long time) {
         switch (action) {
             case UP:
                 getModel().previousEntry();
@@ -20,12 +20,12 @@ public abstract class MenuController<T extends Menu> extends Controller<T> imple
                 getModel().nextEntry();
                 break;
             case SELECT:
-                entrySelected(game);
+                entrySelected(application);
                 break;
             case BACK:
-                backSelected(game);
+                backSelected(application);
                 break;
-            case QUIT: game.setState(null);
+            case QUIT: application.setState(null);
                 break;
         }
     }
