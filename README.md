@@ -1,74 +1,71 @@
-## LDTS_<T><G> - <PROJECT NAME>
+## LDTS_0603 - Dino
 
-> Include here one or two paragraphs explaining the main idea of the project, followed by a sentence identifying who the authors are.
+This game is strongly inspired on the hidden Chrome browser game when there is no internet. The objective of the game is to control Dino avoiding colliding with obstacles (cactus and birds) coming from the right.
+There are collectables that, if you catch them, can help you to score more points. The points are counted by the distance you travelled since the start of the game.
+This project was developed by:
+- **Guilherme Silveira Rego** (up202207041)
+- **João Pedro Nogueira da Hora Santos** (up202205784)
+- **Leonardo de Sousa Magalhães Teixeira** (up202208726)
 
-**Example**:
-
-In this exciting platform game you can help KangarooBoy save the world, by collecting all the coins throughout ten different levels in which you will […].
-
-This project was developed by *John Doe* (*john.doe*@fe.up.pt) and *Jane Doe* (*jane.doe*@fe.up.pt) for LPOO 2018⁄19.
+LDTS 2023/24 <br>
+Software Design and Testing Laboratory
 
 ### IMPLEMENTED FEATURES
 
-> This section should contain a list of implemented features and their descriptions. In the end of the section, include two or three screenshots that illustrate the most important features.
-
-**Examples**:
-
-- **Jumping** - The game character will jump when the space bar key is pressed.
-- **Getting hidden coins** - When the game character hits a platform from below (by jumping beneath it) it will smash that segment of the platform and will get any coins that may exist hidden there.
+- **Menu** - Part of the menu is already implemented.
 
 ### PLANNED FEATURES
 
-> This section is similar to the previous one but should list the features that are not yet implemented. Instead of screenshots you should include GUI mock-ups for the planned features.
+- **Jumping** - Dino will jump when the arrow up  key is pressed.
+- **Squatting** - The game character will squat when the arrow down key is pressed.
+- **Menu** - The game has a menu that can be accessed at the beginning of the game as soon as we run it, and when we lose. The menu has four options:
+    - **Start** - Starts a new game.
+    - **Instructions** - Displays the instructions of the game.
+    - **Leaderboard** - Displays the highest scores.
+    - **Exit** - Exits the game.
+- **Random obstacles** - We want to generate cactus and birds at random but logical positions.
+- **Collectables** -The game will have collectable objects that can be collected by the player:
+  - **Gun** - The gun will shot the closest obstacle to Dino, making it disappear.
+  - **Shield** - Dino will be able to wear a shield that protects him for a short time. If he collides with an obstacle when he's wearing the shield, the player will not lose.
+  - **Higher Jump** - The game character will have a higher jump during a certain period of time.
+  - **Coin** - The coin will boost the player score.
+- **Collision detector** - It is important to make the game detect when Dino collides with the obstacles so that we can know when the player lost or caught a collectable.
+- **Music and sound effects** - Our idea is to implement background music and sound effects for the game.
+- **Game Over** - The game needs to display a game over screen when the player collides with an obstacles. The player will have two options:
+  - **Start** - Starts a new game.
+  - **Menu** - The player goes to the Menu.
 
 ### DESIGN
 
-> This section should be organized in different subsections, each describing a different design problem that you had to solve during the project. Each subsection should be organized in four different parts:
-
-- **Problem in Context.** The description of the design context and the concrete problem that motivated the instantiation of the pattern. Someone else other than the original developer should be able to read and understand all the motivations for the decisions made. When refering to the implementation before the pattern was applied, don’t forget to [link to the relevant lines of code](https://help.github.com/en/articles/creating-a-permanent-link-to-a-code-snippet) in the appropriate version.
-- **The Pattern.** Identify the design pattern to be applied, why it was selected and how it is a good fit considering the existing design context and the problem at hand.
-- **Implementation.** Show how the pattern roles, operations and associations were mapped to the concrete design classes. Illustrate it with a UML class diagram, and refer to the corresponding source code with links to the relevant lines (these should be [relative links](https://help.github.com/en/articles/about-readmes#relative-links-and-image-paths-in-readme-files). When doing this, always point to the latest version of the code.
-- **Consequences.** Benefits and liabilities of the design after the pattern instantiation, eventually comparing these consequences with those of alternative solutions.
-
-**Example of one of such subsections**:
-
-------
-
-#### THE JUMP ACTION OF THE KANGAROOBOY SHOULD BEHAVE DIFFERENTLY DEPENDING ON ITS STATE
+#### DIFFERENT TYPES OF COLLECTABLES SHOULD FOLLOW A BEHAVIOR PATTERN
 
 **Problem in Context**
 
-There was a lot of scattered conditional logic when deciding how the KangarooBoy should behave when jumping, as the jumps should be different depending on the items that came to his possession during the game (an helix will alow him to fly, driking a potion will allow him to jump double the height, etc.). This is a violation of the **Single Responsability Principle**. We could concentrate all the conditional logic in the same method to circumscribe the issue to that one method but the **Single Responsability Principle** would still be violated.
+The game involves various collectables (Gun, Shield, Higher Jump, Coin) with different behaviors. It needs a way to encapsulate these behaviors independently and allow for dynamic selection during runtime.
 
 **The Pattern**
 
-We have applied the **State** pattern. This pattern allows you to represent different states with different subclasses. We can switch to a different state of the application by switching to another implementation (i.e., another subclass). This pattern allowed to address the identified problems because […].
+The **Strategy** Pattern is selected to encapsulate each collectable behavior into separate classes, enabling them to be interchanged at runtime.
 
 **Implementation**
 
-The following figure shows how the pattern’s roles were mapped to the application classes.
+![img_1.png](img_1.png)
 
-![img](https://www.fe.up.pt/~arestivo/page/img/examples/lpoo/state.svg)
+- Context (Collectable) interfaces with the Strategy interface (CollectableBehavior).
+- Each collectable behavior (GunBehavior, ShieldBehavior, etc.) implements the Strategy interface.
+- Collectable classes (Gun, Shield, etc.) hold a reference to the specific behavior interface, allowing dynamic behavior changes.
 
-These classes can be found in the following files:
+These classes could be found in the following files:
 
-- [Character](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/Character.java)
-- [JumpAbilityState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/JumpAbilityState.java)
-- [DoubleJumpState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/DoubleJumpState.java)
-- [HelicopterState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/HelicopterState.java)
-- [IncreasedGravityState](https://web.fe.up.pt/~arestivo/page/courses/2021/lpoo/template/src/main/java/IncreasedGravityState.java)
+- (...)
 
 **Consequences**
 
-The use of the State Pattern in the current design allows the following benefits:
+This pattern allows for easy addition of new collectables without modifying existing code. It enhances code reusability by keeping behaviors separate. Alternative approaches like a switch-case statement would lead to code duplication and reduced flexibility.
 
-- The several states that represent the character’s hability to jump become explicit in the code, instead of relying on a series of flags.
-- We don’t need to have a long set of conditional if or switch statements associated with the various states; instead, polimorphism is used to activate the right behavior.
-- There are now more classes and instances to manage, but still in a reasonable number.
+# Faltam aqui as restantes patterns
 
-#### KNOWN CODE SMELLS
-
-> This section should describe 3 to 5 different code smells that you have identified in your current implementation.
+------
 
 ### TESTING
 
