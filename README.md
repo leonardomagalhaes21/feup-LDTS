@@ -37,23 +37,27 @@ Software Design and Testing Laboratory
 
 ### DESIGN
 
-#### DIFFERENT TYPES OF COLLECTABLES SHOULD FOLLOW A BEHAVIOR PATTERN
+#### MANAGING GAME STATE TRANSITIONS
 
 **Problem in Context**
 
-The game involves various collectables (Bomb, Shield, Boots and Coin) with different behaviors. It needs a way to encapsulate these behaviors independently and allow for dynamic selection during runtime.
+The game contains different states (main menu, gameplay, game over) with specific behaviors and transitions between them.
+The program should be able to easily change the state depending on the user
+interaction with the game.
 
 **The Pattern**
 
-The **Strategy** Pattern is selected to encapsulate each collectable behavior into separate classes, enabling them to be interchanged at runtime.
+The **State** Pattern allows an object to alter its behavior when its internal state changes.
+It'll help manage different game states and simplify state-specific behavior.
 
 **Implementation**
 
-![img_1.png](img_1.png)
+![state.jpg](..%2F..%2FAppData%2FLocal%2FTemp%2Fstate.jpg)
 
-- Context (Collectable) interfaces with the Strategy interface (CollectableBehavior).
-- Each collectable behavior (GunBehavior, ShieldBehavior, etc.) implements the Strategy interface.
-- Collectable classes (Gun, Shield, etc.) hold a reference to the specific behavior interface, allowing dynamic behavior changes.
+- Application - The application will have a private state attribute. 
+- State - It's the interface for the concrete states.
+- MainMenuState, InstructionsState, ScoresState and GameOverState -
+Concrete states.
 
 These classes could be found in the following files:
 
@@ -61,9 +65,36 @@ These classes could be found in the following files:
 
 **Consequences**
 
-This pattern allows for easy addition of new collectables without modifying existing code. It enhances code reusability by keeping behaviors separate. Alternative approaches like a switch-case statement would lead to code duplication and reduced flexibility.
+This pattern will help making easier the addition of new states to the game
+without having to change the whole code.
 
-# Faltam aqui as restantes patterns
+#### RANDOMLY GENERATING ELEMENTS
+
+**Problem in Context**
+
+The game needs to generate random obstacles and collectibles in different ways during gameplay.
+But, this generation has to have a logic behind it, for example, two elements
+should not spawn in the same position.
+
+**The Pattern**
+
+The **Factory Method** defines an interface for creating an object, but lets subclasses decide which class to instantiate.
+It promotes the creation of objects through a common interface
+
+**Implementation**
+
+(METER UML AQUI: como fazer o UML sem métodos?)
+
+- ElementsFactory - Abstract factory defining methods for creating different game elements.
+- ObstacleCreator, CollectableCreator - Concrete creators implementing methods to create specific elements
+- Collectable, Obstacle - Products.
+- Bomb, Boots, Coin, Shield, Building, City, Plane - Concrete products
+made by the concrete creators.
+
+**Consequences**
+
+This pattern (with the right logic) will centralize the creation
+of elements in ElementsFactory class, making all the logic of the creation isolated from the rest of the code.
 
 ------
 

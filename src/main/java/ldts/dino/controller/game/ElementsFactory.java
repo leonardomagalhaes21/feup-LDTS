@@ -1,6 +1,6 @@
 package ldts.dino.controller.game;
 
 
-public class ElementsFactory{
+public abstract class ElementsFactory{
 
 }
