@@ -34,8 +34,30 @@ Software Design and Testing Laboratory
 - **Game Over** - The game needs to display a game over screen when the player collides with an obstacles. The player will have two options:
   - **Start** - Starts a new game.
   - **Menu** - The player goes to the Menu.
+  - **Coin Multiplier** - (OPTIONAL) It's an idea for a future feature that implements the Strategy
+Pattern to create a coin multiplicator depending on how far the player in his run.
 
 ### DESIGN
+
+#### LANTERNA LIBRARY SIMPLICATION
+
+**Problem in Context**
+
+In order to make the game development easier and more scalable you should
+be able to easily change the UI library without changing the rest of the code.
+
+**The Pattern**
+
+To solve this problem we use the **Facade** Pattern since it provides a
+simplified interface to a library, a framework, or any other complex set of classes.
+
+**Implementation**
+
+(meter UML aqui)
+
+- Client - Application ligado ao GUI e o GUI ligado ao Facade
+- Facade - LanternaGUI ligado à nuvem
+- Mete classes dos métodos na nuvem
 
 #### MANAGING GAME STATE TRANSITIONS
 
@@ -61,12 +83,38 @@ Concrete states.
 
 These classes could be found in the following files:
 
-- (...)
+- [Application](./src/main/java/ldts/dino/Application.java)
+- (fazer o mesmo para os outros)
 
 **Consequences**
 
 This pattern will help making easier the addition of new states to the game
 without having to change the whole code.
+
+#### Different collectables must have different effects
+
+**Problem in Context**
+
+Our game has various elements, these elements could be collectables.
+There are four collectables (Bomb, Boots, Coin, Shield),
+each one has a different effect on the game, so we need to have
+a way to execute the effect of the collectable without having to check the
+type.
+
+**The Pattern**
+
+To solve this we use the **Command** Pattern which grants 
+each collectable its own execute command when they are collected by
+the player.
+
+**Implementation**
+
+(fazer uml)
+
+- Invoker - Game
+- Command - Collectable
+- Concrete command - todos os collectables
+- Receiver - classes afetadas por cada colectable (ignorar no uml)
 
 #### RANDOMLY GENERATING ELEMENTS
 
@@ -78,18 +126,19 @@ should not spawn in the same position.
 
 **The Pattern**
 
-The **Factory Method** defines an interface for creating an object, but lets subclasses decide which class to instantiate.
+The **Factory Method** Pattern defines an interface for creating an object, but lets subclasses decide which class to instantiate.
 It promotes the creation of objects through a common interface
 
 **Implementation**
 
 (METER UML AQUI: como fazer o UML sem métodos?)
 
-- ElementsFactory - Abstract factory defining methods for creating different game elements.
+- Creator - Abstract factory defining methods for creating different game elements.
 - ObstacleCreator, CollectableCreator - Concrete creators implementing methods to create specific elements
-- Collectable, Obstacle - Products.
-- Bomb, Boots, Coin, Shield, Building, City, Plane - Concrete products
+- Collectable, Obstacle - Elements.
+- Bomb, Boots, Coin, Shield, Building, City, Plane - Concrete elements
 made by the concrete creators.
+- ElementsFactory - Controls the concrete creators.
 
 **Consequences**
 
@@ -105,92 +154,10 @@ of elements in ElementsFactory class, making all the logic of the creation isola
 
 ### SELF-EVALUATION
 
-> In this section describe how the work regarding the project was divided between the students. In the event that members of the group do not agree on a work distribution, the group should send an email to the teacher explaining the disagreement.
-
-**Example**:
-
-- John Doe: 40%
-- Jane Doe: 60%
+- Guilherme Rego: 33.3%
+- João Santos: 33.3%
+- Leonardo Magalhães: 33.3%
 
 ### UML DIAGRAM
 https://www.planttext.com/
 ![TLFBRi8m43pZht1lhQhyG8GGKaiX4fH3qkUbCiwMMd8SP3jGXFhlzIClf-abySpQixFUzLnf8dLLS7Iblw00J8dSbIBQIt96Y7AY55uImr_G95eJeK4AidnAyBvYXaarqO2L_Q8VX9YDVn8As6wvMCfBz4-oui1D9g5LlSl8K0aWi78_Wr-I-smLOoDdm6gHB5TPWnwsZzb7chmlF64oa9tIab2DVIfdQPhDd726Yp87RbPtfT2ov1oaZT4.svg](..%2F..%2F..%2FDownloads%2FTLFBRi8m43pZht1lhQhyG8GGKaiX4fH3qkUbCiwMMd8SP3jGXFhlzIClf-abySpQixFUzLnf8dLLS7Iblw00J8dSbIBQIt96Y7AY55uImr_G95eJeK4AidnAyBvYXaarqO2L_Q8VX9YDVn8As6wvMCfBz4-oui1D9g5LlSl8K0aWi78_Wr-I-smLOoDdm6gHB5TPWnwsZzb7chmlF64oa9tIab2DVIfdQPhDd726Yp87RbPtfT2ov1oaZT4.svg)
-<details>
-
-```
-@startuml
-!theme carbon-gray
-
-class Game {
-	-LanternaGUI gui
-	-State state
-}
-
-interface GUI {
-}
-
-class LanternaGUI implements GUI {
-	-Screen screen
-	-WIDTH: int
-	-HEIGHT: int
-	-FONT_SIZE: int
-}
-
-abstract class State<T> {
-	-T model
-	-Controller<T> controller
-	-Viewer<T> viewer
-}
-
-class MainMenuState extends State {
-}
-
-abstract class Controller<T> {
-	-T model
-	+step()
-}
-
-interface MenuInterface {
-}
-
-abstract class MenuController extends Controller implements MenuInterface {
-	+@Override step()
-}
-
-class MainMenuController extends MenuController {
-	+entrySelected()
-}
-
-abstract class Menu {
-	-entries: List<String>
-	-currentEntry: String
-	+isSelected(): boolean
-}
-
-class MainMenu extends Menu {
-	+isSelectedStart()
-}
-
-abstract class Viewer<T> {
-	-T model
-	+draw()
-}
-
-abstract class MenuViewer extends Viewer {
-	-entriesX: int
-	-entriesY: int
-}
-
-class MainMenuViewer extends MenuViewer {
-}
-
-Game --> State
-Game --> LanternaGUI
-State --> Controller
-State --> Viewer
-MainMenuState --> MainMenu
-
-@enduml
-```
-
-</details>
