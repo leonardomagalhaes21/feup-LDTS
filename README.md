@@ -37,6 +37,10 @@ Software Design and Testing Laboratory
   - **Coin Multiplier** - (OPTIONAL) It's an idea for a future feature that implements the Strategy
 Pattern to create a coin multiplicator depending on how far the player in his run.
 
+<br/>
+
+![sketch1.png](src%2Fmain%2Fresources%2Fmockups%2Fsketch1.png)
+![sketch2.png](src%2Fmain%2Fresources%2Fmockups%2Fsketch2.png)
 ### DESIGN
 
 #### LANTERNA LIBRARY SIMPLICATION
