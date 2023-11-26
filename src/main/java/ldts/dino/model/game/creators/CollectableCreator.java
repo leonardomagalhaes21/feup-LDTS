@@ -1,4 +1,4 @@
 package ldts.dino.model.game.creators;
 
-public class CollectableCreator {
+public class CollectableCreator extends Creator {
 }

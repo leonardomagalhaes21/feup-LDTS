@@ -6,7 +6,7 @@ import ldts.dino.gui.GUI;
 import ldts.dino.model.game.Game;
 
 public class GameController extends Controller<Game> {
-    protected GameController(Game model) {
+    public GameController(Game model) {
         super(model);
     }
 
