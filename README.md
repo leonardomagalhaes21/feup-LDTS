@@ -188,8 +188,7 @@ of elements in ElementsFactory class, making all the logic of the creation isola
 
 ### TESTING
 
-- Screenshot of coverage report.
-- Link to mutation testing report.
+- Only menu and utils testing. Others still not implemented.
 
 ### SELF-EVALUATION
 
@@ -199,4 +198,4 @@ of elements in ElementsFactory class, making all the logic of the creation isola
 
 ### UML DIAGRAM
 https://www.planttext.com/
-![TLFBRi8m43pZht1lhQhyG8GGKaiX4fH3qkUbCiwMMd8SP3jGXFhlzIClf-abySpQixFUzLnf8dLLS7Iblw00J8dSbIBQIt96Y7AY55uImr_G95eJeK4AidnAyBvYXaarqO2L_Q8VX9YDVn8As6wvMCfBz4-oui1D9g5LlSl8K0aWi78_Wr-I-smLOoDdm6gHB5TPWnwsZzb7chmlF64oa9tIab2DVIfdQPhDd726Yp87RbPtfT2ov1oaZT4.svg](..%2F..%2F..%2FDownloads%2FTLFBRi8m43pZht1lhQhyG8GGKaiX4fH3qkUbCiwMMd8SP3jGXFhlzIClf-abySpQixFUzLnf8dLLS7Iblw00J8dSbIBQIt96Y7AY55uImr_G95eJeK4AidnAyBvYXaarqO2L_Q8VX9YDVn8As6wvMCfBz4-oui1D9g5LlSl8K0aWi78_Wr-I-smLOoDdm6gHB5TPWnwsZzb7chmlF64oa9tIab2DVIfdQPhDd726Yp87RbPtfT2ov1oaZT4.svg)
+![uml.jpg](src%2Fmain%2Fresources%2Fuml%2Fuml.jpg)

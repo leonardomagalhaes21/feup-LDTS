@@ -1,4 +1,6 @@
 package ldts.dino.model.game.elements.collectables;
 
-public abstract class Collectable {
+import ldts.dino.model.game.elements.Element;
+
+public abstract class Collectable extends Element {
 }
