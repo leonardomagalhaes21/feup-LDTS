@@ -30,6 +30,10 @@ public class LanternaGUI implements GUI {
         this.screen = createScreen(terminal);
     }
 
+    public LanternaGUI(Screen screen){
+        this.screen = screen;
+    }
+
     private Screen createScreen(Terminal terminal) throws IOException {
         final Screen screen;
         screen = new TerminalScreen(terminal);
