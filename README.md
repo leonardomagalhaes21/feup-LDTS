@@ -53,11 +53,18 @@ simplified interface to a library, a framework, or any other complex set of clas
 
 **Implementation**
 
-(meter UML aqui)
+![facade.jpg](src%2Fmain%2Fresources%2Fuml%2Ffacade.jpg)
 
-- Client - Application ligado ao GUI e o GUI ligado ao Facade
-- Facade - LanternaGUI ligado à nuvem
-- Mete classes dos métodos na nuvem
+- Application - Client that uses our simplified interface GUI.
+- GUI - Simplified interface of Lanterna library.
+- LanternaGUI - Implements methods defined in GUI interface.
+
+These classes could be found in the following files:
+
+- [Application](./src/main/java/ldts/dino/Application.java)
+- [GUI](./src/main/java/ldts/dino/gui/GUI.java)
+- [LanternaGUI](./src/main/java/ldts/dino/gui/LanternaGUI.java)
+
 
 #### MANAGING GAME STATE TRANSITIONS
 
@@ -74,24 +81,29 @@ It'll help manage different game states and simplify state-specific behavior.
 
 **Implementation**
 
-![state.jpg](..%2F..%2FAppData%2FLocal%2FTemp%2Fstate.jpg)
+![state.jpg](src%2Fmain%2Fresources%2Fuml%2Fstate.jpg)
 
 - Application - The application will have a private state attribute. 
 - State - It's the interface for the concrete states.
-- MainMenuState, InstructionsState, ScoresState and GameOverState -
+- GameState, MainMenuState, InstructionsState, ScoresState and GameOverState -
 Concrete states.
 
 These classes could be found in the following files:
 
 - [Application](./src/main/java/ldts/dino/Application.java)
-- (fazer o mesmo para os outros)
+- [State](./src/main/java/ldts/dino/state/State.java)
+- [GameState](./src/main/java/ldts/dino/state/GameState.java)
+- [MainMenuState](./src/main/java/ldts/dino/state/MainMenuState.java)
+- [InstructionsState](./src/main/java/ldts/dino/state/InstructionsState.java)
+- [ScoresState](./src/main/java/ldts/dino/state/ScoresState.java)
+- [GameOverState](./src/main/java/ldts/dino/state/GameOverState.java)
 
 **Consequences**
 
 This pattern will help making easier the addition of new states to the game
 without having to change the whole code.
 
-#### Different collectables must have different effects
+#### DIFFERENT COLLECTABLES MUST HAVE DIFFERENT EFFECTS
 
 **Problem in Context**
 
@@ -109,12 +121,20 @@ the player.
 
 **Implementation**
 
-(fazer uml)
+![command.jpg](src%2Fmain%2Fresources%2Fuml%2Fcommand.jpg)
 
-- Invoker - Game
-- Command - Collectable
-- Concrete command - todos os collectables
-- Receiver - classes afetadas por cada colectable (ignorar no uml)
+- Game - Invoker.
+- Collectable - Command.
+- Bomb, Boots, Coin, Shield - Concrete commands.
+
+These classes could be found in the following files:
+
+- [Game](./src/main/java/ldts/dino/model/game/Game.java)
+- [Collectable](./src/main/java/ldts/dino/model/game/elements/collectables/Collectable.java)
+- [Bomb](./src/main/java/ldts/dino/model/game/elements/collectables/Bomb.java)
+- [Boots](./src/main/java/ldts/dino/model/game/elements/collectables/Boots.java)
+- [Coin](./src/main/java/ldts/dino/model/game/elements/collectables/Coin.java)
+- [Shield](./src/main/java/ldts/dino/model/game/elements/collectables/Shield.java)
 
 #### RANDOMLY GENERATING ELEMENTS
 
@@ -131,14 +151,29 @@ It promotes the creation of objects through a common interface
 
 **Implementation**
 
-(METER UML AQUI: como fazer o UML sem métodos?)
+![factorymethod.jpg](src%2Fmain%2Fresources%2Fuml%2Ffactorymethod.jpg)
 
 - Creator - Abstract factory defining methods for creating different game elements.
-- ObstacleCreator, CollectableCreator - Concrete creators implementing methods to create specific elements
+- ObstacleCreator, CollectableCreator - Concrete creators extending methods to create specific elements
 - Collectable, Obstacle - Elements.
 - Bomb, Boots, Coin, Shield, Building, City, Plane - Concrete elements
 made by the concrete creators.
 - ElementsFactory - Controls the concrete creators.
+
+These classes could be found in the following files:
+
+- [Creator](./src/main/java/ldts/dino/model/game/creators/Creator.java)
+- [CollectableCreator](./src/main/java/ldts/dino/model/game/creators/CollectableCreator.java)
+- [ObstacleCreator](./src/main/java/ldts/dino/model/game/creators/ObstacleCreator.java)
+- [Collectable](./src/main/java/ldts/dino/model/game/elements/collectables/Collectable.java)
+- [Obstacle](./src/main/java/ldts/dino/model/game/elements/obstacles/Obstacle.java)
+- [Bomb](./src/main/java/ldts/dino/model/game/elements/collectables/Bomb.java)
+- [Boots](./src/main/java/ldts/dino/model/game/elements/collectables/Boots.java)
+- [Coin](./src/main/java/ldts/dino/model/game/elements/collectables/Coin.java)
+- [Shield](./src/main/java/ldts/dino/model/game/elements/collectables/Shield.java)
+- [Building](./src/main/java/ldts/dino/model/game/elements/obstacles/Building.java)
+- [City](./src/main/java/ldts/dino/model/game/elements/obstacles/City.java)
+- [Plane](./src/main/java/ldts/dino/model/game/elements/obstacles/Plane.java)
 
 **Consequences**
 

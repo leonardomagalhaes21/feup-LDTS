@@ -1,4 +1,4 @@
 package ldts.dino.model.game.creators;
 
-public class ObstacleCreator {
+public class ObstacleCreator extends Creator {
 }
