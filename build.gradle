@@ -16,7 +16,7 @@ pitest {
 }
 
 application {
-    mainClass.set('ldts.dino.Game')
+    mainClass.set('ldts.dino.Application')
 }
 
 dependencies {
