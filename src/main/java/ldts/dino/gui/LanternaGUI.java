@@ -21,7 +21,7 @@ import java.net.URL;
 
 public class LanternaGUI implements GUI {
     private final Screen screen;
-    private static final int WIDTH = 60, HEIGHT = 40, FONT_SIZE = 17;
+    public static final int WIDTH = 60, HEIGHT = 40, FONT_SIZE = 17;
 
 
     public LanternaGUI() throws IOException, URISyntaxException, FontFormatException {
@@ -97,6 +97,13 @@ public class LanternaGUI implements GUI {
         tg.setForegroundColor(TextColor.Factory.fromString(color));
         tg.setBackgroundColor(TextColor.Factory.fromString(backgroundColor));
         tg.putString(position.getX(), position.getY(), text);
+    }
+
+    @Override
+    public void drawArea(Position position, int width, int height, String color) {
+        TextGraphics tg = screen.newTextGraphics();
+        tg.setBackgroundColor(TextColor.Factory.fromString(color));
+        tg.fillRectangle(new TerminalPosition(position.getX(), position.getY()), new TerminalSize(width, height), ' ');
     }
 
     private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {

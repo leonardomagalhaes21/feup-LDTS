@@ -12,5 +12,7 @@ public interface GUI {
     void paintBackground(String hashtag);
     void drawText(Position position, String text, String color, String backgroundColor);
 
+    void drawArea(Position position, int width, int height, String color);
+
     enum ACTION {UP, DOWN, NONE, QUIT, SELECT, SPACE, BACK}
 }
