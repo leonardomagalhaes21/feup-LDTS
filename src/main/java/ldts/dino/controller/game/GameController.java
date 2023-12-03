@@ -12,6 +12,10 @@ public class GameController extends Controller<Game> {
 
     @Override
     public void step(Application application, GUI.ACTION action, long time) {
-
+        switch (action) {
+            case QUIT:
+                application.setState(null);
+                break;
+        }
     }
 }
