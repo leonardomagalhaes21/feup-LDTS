@@ -16,6 +16,7 @@ public class GameViewer extends Viewer<Game> {
     protected void drawElements(GUI gui) {
         gui.paintBackground(Colors.BLUE.getHex());
         drawElement(gui, getModel().getGround(), new GroundViewer());
+        drawElement(gui, getModel().getDino(), new DinoViewer());
     }
 
     private <T extends Element> void drawElement(GUI gui, T element, ElementViewer<T> viewer) {
