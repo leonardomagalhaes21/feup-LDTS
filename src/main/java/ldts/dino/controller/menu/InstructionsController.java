@@ -2,6 +2,8 @@ package ldts.dino.controller.menu;
 
 import ldts.dino.Application;
 import ldts.dino.model.menu.InstructionsMenu;
+import ldts.dino.model.menu.MainMenu;
+import ldts.dino.state.MainMenuState;
 
 public class InstructionsController extends MenuController<InstructionsMenu>  {
     public InstructionsController(InstructionsMenu model) {
@@ -15,6 +17,6 @@ public class InstructionsController extends MenuController<InstructionsMenu>  {
 
     @Override
     public void backSelected(Application application) {
-
+        application.setState(new MainMenuState(new MainMenu()));
     }
 }

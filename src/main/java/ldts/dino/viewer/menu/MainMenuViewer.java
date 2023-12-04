@@ -9,5 +9,4 @@ public class MainMenuViewer extends MenuViewer<MainMenu>{
         super(mainMenu, new Position(25, 17));
     }
 
-
 }
