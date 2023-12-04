@@ -13,7 +13,7 @@ public class ScoresController extends MenuController<ScoresMenu>{
 
     @Override
     public void entrySelected(Application application) {
-
+        application.setState(new MainMenuState(new MainMenu()));
     }
 
     @Override
