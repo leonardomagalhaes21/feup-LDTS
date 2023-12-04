@@ -12,7 +12,7 @@ public class InstructionsController extends MenuController<InstructionsMenu>  {
 
     @Override
     public void entrySelected(Application application) {
-
+        application.setState(new MainMenuState(new MainMenu()));
     }
 
     @Override
