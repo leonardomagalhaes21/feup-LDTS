@@ -22,20 +22,17 @@ public abstract class MenuViewer<T extends Menu> extends Viewer<T> {
         //draw the menu stuff
         gui.paintBackground(Colors.MENU_BACKGROUND.getHex());
 
-        drawEntries(gui);
+        drawEntries(gui, entriesX, entriesY);
+
+        drawTextMenu(gui, entriesX, entriesY);
     }
 
-    public void drawEntries(GUI gui) {
-        for (int i = 0; i < getModel().getNumberEntries(); i++) {
-            if (getModel().isSelected(i)) {
-                drawText(gui, new Position(entriesX, entriesY + i), ">" + getModel().getEntry(i), Colors.ORANGE.getHex());
-            } else {
-                drawText(gui, new Position(entriesX + 1, entriesY + i), getModel().getEntry(i), Colors.WHITE.getHex());
-            }
-        }
-    }
+    abstract protected void drawEntries(GUI gui, Integer entriesX, Integer entriesY);
+
+    abstract protected void drawTextMenu(GUI gui, Integer entriesX, Integer entriesY);
 
     public void drawText(GUI gui, Position position, String text, String color) {
         gui.drawText(position, text, color, Colors.MENU_BACKGROUND.getHex());
     }
+
 }
