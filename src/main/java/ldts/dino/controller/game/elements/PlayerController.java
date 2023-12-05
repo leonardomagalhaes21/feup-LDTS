@@ -1,11 +1,11 @@
 package ldts.dino.controller.game.elements;
 
 import ldts.dino.Application;
-import ldts.dino.controller.game.elements.ElementsController;
+import ldts.dino.controller.Controller;
 import ldts.dino.gui.GUI;
 import ldts.dino.model.game.Game;
 
-public class PlayerController extends ElementsController {
+public class PlayerController extends Controller<Game> {
 
     protected PlayerController(Game model) {
         super(model);
@@ -15,4 +15,5 @@ public class PlayerController extends ElementsController {
     public void step(Application application, GUI.ACTION action, long time) {
 
     }
+
 }

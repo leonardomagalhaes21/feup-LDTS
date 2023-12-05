@@ -2,7 +2,8 @@ package ldts.dino.model.game;
 
 import ldts.dino.model.game.elements.Dino;
 import ldts.dino.model.game.elements.Ground;
-import ldts.dino.model.game.elements.obstacles.Building;
+import ldts.dino.model.game.elements.obstacles.City;
+import ldts.dino.model.game.elements.obstacles.Obstacle;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,12 +11,14 @@ import java.util.List;
 public class Game {
     private final Dino dino;
     private final Ground ground;
-    private final List<Building> buildingsList;
+    private final List<Obstacle> obstaclesList;
+    private int clock;
 
     public Game() {
         this.dino = new Dino();
         this.ground = new Ground();
-        this.buildingsList = new ArrayList<>();
+        this.obstaclesList = new ArrayList<>();
+        this.clock = 0;
     }
 
     public Dino getDino() {
@@ -26,13 +29,19 @@ public class Game {
         return ground;
     }
 
-    public List<Building> getBuildings() {
-        return buildingsList;
+    public int getClock() {
+        return clock;
     }
 
-    public void addBuilding(Building building) {
-        buildingsList.add(building);
+    public void incrementClock() {
+        clock++;
     }
 
+    public List<Obstacle> getObstacles() {
+        return obstaclesList;
+    }
 
+    public void addObstacle(Obstacle obstacle) {
+        obstaclesList.add(obstacle);
+    }
 }

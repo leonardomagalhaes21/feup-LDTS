@@ -21,7 +21,7 @@ import java.net.URL;
 
 public class LanternaGUI implements GUI {
     private final Screen screen;
-    public static final int WIDTH = 60, HEIGHT = 40, FONT_SIZE = 17;
+    public static final int WIDTH = 60, HEIGHT = 40, FONT_SIZE = 20;
 
 
     public LanternaGUI() throws IOException, URISyntaxException, FontFormatException {

@@ -73,4 +73,8 @@ public abstract class Element {
     public void setHeight(int height) {
         this.height = height;
     }
+
+    public boolean isOutOfScreen() {
+        return this.getPosition().getX() + this.getWidth() < -1;
+    }
 }
