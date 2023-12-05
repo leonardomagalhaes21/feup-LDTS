@@ -6,7 +6,7 @@ import ldts.dino.model.game.creators.ObstacleCreator;
 
 public class ElementsFactory {
   private final Game game;
-    private ObstacleCreator obstacleCreator;
+    private final ObstacleCreator obstacleCreator;
 
   public ElementsFactory(Game game) {
     this.game = game;
@@ -14,14 +14,13 @@ public class ElementsFactory {
   }
 
   public void generateObstacle() {
-    game.addBuilding(obstacleCreator.createBuilding());
+    game.addObstacle(obstacleCreator.create());
   }
 
   public void step() {
-//      if (game.getSteps() == 0)
-      // TODO: IMPLEMENT STEPS !!
-      // steps++ if(steps = 20) steps = 0;
-          generateObstacle();
-      //incrementSteps();
+    if(game.getClock() % 50 == 0) {
+      generateObstacle();
+    }
+    game.incrementClock();
   }
 }

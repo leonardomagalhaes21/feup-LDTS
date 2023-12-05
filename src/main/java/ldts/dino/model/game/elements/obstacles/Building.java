@@ -1,27 +1,33 @@
 package ldts.dino.model.game.elements.obstacles;
 
-import ldts.dino.gui.LanternaGUI;
-import ldts.dino.model.game.elements.Ground;
 import ldts.dino.utils.Position;
 
-public class Building extends Obstacle{
-    public static int HEIGHT = 10;
-    public static int WIDTH = 2;
-    public static int VELOCITY = -1;
 
-    public Building() {
-        super(new Position(LanternaGUI.WIDTH, Ground.HEIGHT - HEIGHT), WIDTH, HEIGHT);
+public class Building extends Obstacle {
+    public static final int WIDTH = 4;
+
+    public static final int SMALL_BUILDING_HEIGHT = 6;
+    public static final int LARGE_BUILDING_HEIGHT = 10;
+
+    private Building(Position position, int width, int height) {
+        super(position, width, height);
     }
 
-    public int getVelocity() {
-        return VELOCITY;
-    }
+    public static final class Factory {
 
-    public boolean isOutOfScreen() {
-        return this.getPosition().getX() < -1;
-    }
+        private Factory() {
+        }
 
-    public void move() {
-        this.setPosition(new Position(this.getPosition().getX() + getVelocity(), this.getPosition().getY()));
+        public static Building build(Position position, int height) {
+            return new Building(position, Building.WIDTH, height);
+        }
+
+        public static Building buildLarge(Position position) {
+            return build(position, LARGE_BUILDING_HEIGHT);
+        }
+
+        public static Building buildSmall(Position position) {
+            return build(position, SMALL_BUILDING_HEIGHT);
+        }
     }
 }
