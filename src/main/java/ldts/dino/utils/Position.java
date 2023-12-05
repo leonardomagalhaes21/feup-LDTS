@@ -27,4 +27,8 @@ public class Position {
     public boolean equals(Position position) {
         return x == position.getX() && y == position.getY();
     }
+
+    public Position offset(int x, int y) {
+        return new Position(this.x + x, this.y + y);
+    }
 }

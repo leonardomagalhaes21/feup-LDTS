@@ -18,7 +18,7 @@ public class ElementsFactory {
   }
 
   public void step() {
-    if(game.getClock() % 50 == 0) {
+    if(game.getClock() % 100 == 0) {
       generateObstacle();
     }
     game.incrementClock();

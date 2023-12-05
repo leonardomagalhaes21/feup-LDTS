@@ -6,7 +6,7 @@ import ldts.dino.utils.Position;
 import java.util.Random;
 
 public abstract class Obstacle extends Element {
-    private final int speed = -1;
+    private final int speed = -3;
     public Obstacle(Position position, int width, int height) {
         super(position, width, height);
 

@@ -1,6 +1,7 @@
 package ldts.dino.viewer.menu;
 
 import ldts.dino.gui.GUI;
+import ldts.dino.gui.LanternaGUI;
 import ldts.dino.model.menu.Menu;
 import ldts.dino.state.State;
 import ldts.dino.utils.Position;
@@ -19,8 +20,9 @@ public abstract class MenuViewer<T extends Menu> extends Viewer<T> {
 
     @Override
     public void drawElements(GUI gui) {
-        //draw the menu stuff
-        gui.paintBackground(Colors.MENU_BACKGROUND.getHex());
+        gui.drawImageFromFile(new Position(0, 0), "background");
+
+        gui.drawText(new Position(LanternaGUI.WIDTH / 2 - 50, 40), "DINO", 30, Colors.ORANGE.getHex());
 
         drawEntries(gui, entriesX, entriesY);
 
@@ -32,7 +34,7 @@ public abstract class MenuViewer<T extends Menu> extends Viewer<T> {
     abstract protected void drawTextMenu(GUI gui, Integer entriesX, Integer entriesY);
 
     public void drawText(GUI gui, Position position, String text, String color) {
-        gui.drawText(position, text, color, Colors.MENU_BACKGROUND.getHex());
+        gui.drawText(position, text, 10, color);
     }
 
 }

@@ -9,7 +9,7 @@ public enum Colors {
     WHITE("#e8e8e8"),
     MENU_BACKGROUND("#358e9c"),
     BROWN("#624226"),
-    BLACK("#000000"),
+    BLACK("#000001"),
     GREY("#969696");
 
     private final String hex;
