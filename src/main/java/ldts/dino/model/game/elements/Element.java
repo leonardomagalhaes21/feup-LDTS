@@ -54,11 +54,11 @@ public abstract class Element {
         Position thisPosition = this.getPosition();
         Position elementPosition = element.getPosition();
 
-        boolean xOverlap = thisPosition.getX() < elementPosition.getX() + element.getWidth() &&
-                thisPosition.getX() + this.getWidth() > elementPosition.getX();
+        boolean xOverlap = thisPosition.getX() <= elementPosition.getX() + element.getWidth() &&
+                thisPosition.getX() + this.getWidth() >= elementPosition.getX();
 
-        boolean yOverlap = thisPosition.getY() < elementPosition.getY() + element.getHeight() &&
-                thisPosition.getY() + this.getHeight() > elementPosition.getY();
+        boolean yOverlap = thisPosition.getY() <= elementPosition.getY() + element.getHeight() &&
+                thisPosition.getY() + this.getHeight() >= elementPosition.getY();
 
         return xOverlap && yOverlap;
     }

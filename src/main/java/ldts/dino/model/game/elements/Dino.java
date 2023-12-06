@@ -1,13 +1,12 @@
 package ldts.dino.model.game.elements;
 
-import ldts.dino.gui.LanternaGUI;
 import ldts.dino.utils.Position;
 
 public class Dino extends Element {
     public static int HEIGHT = 30;
     public static int WIDTH = 30;
     public int speed = 1;
-    public final int MAX_SPEED = 3;
+    public final int MAX_SPEED = 10;
     public int gravity = 1;
     public int dinoForm = 1;
     public Dino() {
@@ -31,7 +30,7 @@ public class Dino extends Element {
     }
 
     public void setSpeed(int speed) {
-        this.speed = speed;
+        this.speed = Math.min(speed, MAX_SPEED);
     }
 
     public int getGravity() {
