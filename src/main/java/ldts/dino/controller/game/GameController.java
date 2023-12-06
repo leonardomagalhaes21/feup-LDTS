@@ -18,7 +18,7 @@ public class GameController extends Controller<Game> {
         this.elementsFactory = new ElementsFactory(model);
         this.dinoController = new DinoController(model);
         this.motionController = new MotionController(model);
-        this.collisionController = new CollisionController(model, dinoController);
+        this.collisionController = new CollisionController(model);
     }
 
     @Override

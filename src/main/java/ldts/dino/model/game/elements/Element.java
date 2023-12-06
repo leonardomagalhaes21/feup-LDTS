@@ -54,9 +54,6 @@ public abstract class Element {
         Position thisPosition = this.getPosition();
         Position elementPosition = element.getPosition();
 
-        System.out.println(thisPosition + " " + this.getWidth() + " " + this.getHeight());
-        System.out.println(elementPosition + " " + element.getWidth() + " " + element.getHeight());
-
         boolean xOverlap = thisPosition.getX() < elementPosition.getX() + element.getWidth() &&
                 thisPosition.getX() + this.getWidth() > elementPosition.getX();
 

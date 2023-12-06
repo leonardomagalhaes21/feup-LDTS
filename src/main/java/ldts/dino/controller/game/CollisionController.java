@@ -10,11 +10,9 @@ import ldts.dino.model.menu.GameOverMenu;
 import ldts.dino.state.GameOverState;
 
 public class CollisionController extends Controller<Game> {
-    private final DinoController dinoController;
 
-    protected CollisionController(Game model, DinoController dinoController) {
+    protected CollisionController(Game model) {
         super(model);
-        this.dinoController = dinoController;
     }
 
     @Override
