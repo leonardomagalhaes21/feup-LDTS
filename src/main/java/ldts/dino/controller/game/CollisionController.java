@@ -5,6 +5,7 @@ import ldts.dino.controller.Controller;
 import ldts.dino.controller.game.elements.DinoController;
 import ldts.dino.gui.GUI;
 import ldts.dino.model.game.Game;
+import ldts.dino.model.game.elements.Ground;
 import ldts.dino.model.game.elements.obstacles.Obstacle;
 import ldts.dino.model.menu.GameOverMenu;
 import ldts.dino.state.GameOverState;
@@ -17,6 +18,9 @@ public class CollisionController extends Controller<Game> {
 
     @Override
     public void step(Application application, GUI.ACTION action, long time) {
+        if(getModel().getGround().isColliding(getModel().getDino())) {
+            getModel().getDino().getPosition().setY(getModel().getGround().getPosition().getY() - getModel().getDino().getHeight());
+        }
         for(Obstacle obstacle: getModel().getObstacles()) {
             if (obstacle.isColliding(getModel().getDino())) {
                 application.setState(new GameOverState(new GameOverMenu()));

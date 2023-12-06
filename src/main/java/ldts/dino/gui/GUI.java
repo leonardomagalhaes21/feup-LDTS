@@ -13,7 +13,7 @@ public interface GUI {
     void paintBackground(String hashtag);
     void drawArea(Position position, int width, int height, String color);
 
-    enum ACTION {UP, DOWN, NONE, QUIT, SELECT, SPACE, BACK}
+    enum ACTION {UP, DOWN, NONE, QUIT, SELECT, BACK, JUMP}
 
     public void drawImage(Position pos, BufferedImage image);
 
