@@ -123,7 +123,7 @@ public class LanternaGUI implements GUI {
 
     @Override
     public void drawText(Position position, String text, int size, String color) {
-        BufferedImage textSprite = SpriteBuilder.loadText(text, size, color);
+        BufferedImage textSprite = spb.loadText(new SpriteBuilder.TextDetails(text, size, color));
 
         drawImage(position, textSprite);
     }

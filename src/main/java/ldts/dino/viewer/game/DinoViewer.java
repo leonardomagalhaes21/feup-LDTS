@@ -8,6 +8,10 @@ import ldts.dino.utils.Colors;
 public class DinoViewer implements ElementViewer<Dino>{
     @Override
     public void draw(Dino element, GUI gui) {
-        gui.drawArea(element.getPosition(), element.getWidth(), element.getHeight(), Colors.BLACK.getHex());
+        if (element.getDinoForm() == 1) {
+            gui.drawImageFromFile(element.getPosition(), "walk1");
+        } else {
+            gui.drawImageFromFile(element.getPosition(), "walk2");
+        }
     }
 }

@@ -50,10 +50,19 @@ public class City extends Obstacle {
     public List<Building> getBuildings() {
         return buildings;
     }
+
+    public Position getBuildingAbsolutePosition(Building building) {
+        return new Position(building.getPosition().getX() + this.getPosition().getX(), building.getPosition().getY());
+    }
     @Override
     public boolean isColliding(Element element) {
+        Position cityPos = this.getPosition();
+
         for(Building building : buildings) {
-            if(building.isColliding(element)) {
+            Position buildingPosition = building.getPosition();
+            Position newPos = new Position(cityPos.getX() + buildingPosition.getX(), buildingPosition.getY());
+            Building buildingToCollide = Building.Factory.build(newPos, building.getHeight()) ;
+            if(buildingToCollide.isColliding(element)) {
                 return true;
             }
         }

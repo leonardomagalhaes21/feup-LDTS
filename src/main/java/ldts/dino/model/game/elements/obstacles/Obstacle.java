@@ -3,8 +3,6 @@ package ldts.dino.model.game.elements.obstacles;
 import ldts.dino.model.game.elements.Element;
 import ldts.dino.utils.Position;
 
-import java.util.Random;
-
 public abstract class Obstacle extends Element {
     private final int speed = -3;
     public Obstacle(Position position, int width, int height) {

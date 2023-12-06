@@ -15,10 +15,11 @@ import java.util.Map;
 public class SpriteBuilder {
 
     private String resourcePath = "./src/main/resources/images/";
-    private final Map<String , BufferedImage> cache;
+    private final Map<String , BufferedImage> cache = new HashMap<>();
+    private final Map<TextDetails, BufferedImage> textCache = new HashMap<>();
     public static final Font FONT;
-
-    static {
+    public record TextDetails(String text, int size, String color) {}
+    static{
         Font font;
 
         try {
@@ -31,9 +32,6 @@ public class SpriteBuilder {
         }
 
         FONT = font;
-    }
-    public SpriteBuilder() throws IOException, URISyntaxException {
-        this.cache = new HashMap<>();
     }
 
     public boolean isInCache(String name) {
@@ -63,23 +61,25 @@ public class SpriteBuilder {
         return image;
     }
 
-    public static BufferedImage loadText(String text, int size, String color) {
-        Font font = FONT.deriveFont((float) size);
+    public BufferedImage loadText(TextDetails textDetails) {
+        if(textCache.containsKey(textDetails)) return textCache.get(textDetails);
+        Font font = FONT.deriveFont((float) textDetails.size);
 
         FontRenderContext frc = new FontRenderContext(null, false, false);
-        LineMetrics metrics = font.getLineMetrics(text, frc);
+        LineMetrics metrics = font.getLineMetrics(textDetails.text, frc);
 
-        int width = (int) Math.ceil(font.getStringBounds(text, frc).getWidth());
+        int width = (int) Math.ceil(font.getStringBounds(textDetails.text, frc).getWidth());
         int height = (int) Math.ceil(metrics.getHeight());
         int ascent = (int) Math.ceil(metrics.getAscent());
 
         BufferedImage image = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
 
         Graphics graphics = image.getGraphics();
-        graphics.setColor(new Color(Integer.parseInt(color.substring(1), 16)));
+        graphics.setColor(new Color(Integer.parseInt(textDetails.color.substring(1), 16)));
         graphics.setFont(font);
-        graphics.drawString(text, 0, ascent);
+        graphics.drawString(textDetails.text, 0, ascent);
 
+        textCache.put(textDetails, image);
         return image;
     }
 

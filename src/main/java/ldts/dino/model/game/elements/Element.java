@@ -1,5 +1,6 @@
 package ldts.dino.model.game.elements;
 
+import ldts.dino.model.game.elements.obstacles.Obstacle;
 import ldts.dino.utils.Position;
 
 import java.util.ArrayList;
@@ -25,35 +26,6 @@ public abstract class Element {
         return this.position;
     }
 
-    public List<Position> getPositions() {
-        List<Position> positions = new ArrayList<>();
-
-        for (int i = 0; i < getHeight(); i++) {
-            for (int j = 0; j < getWidth(); j++) {
-                int x = getPosition().getX() + j;
-                int y = getPosition().getY() + i;
-                positions.add(new Position(x, y));
-            }
-        }
-
-        return positions;
-    }
-
-    public boolean isColliding(Element element) {
-        List<Position> l1 = getPositions();
-        List<Position> l2 = element.getPositions();
-
-        for (Position pos1 : l1) {
-            for (Position pos2 : l2) {
-                if (pos1.equals(pos2)) {
-                    return true;
-                }
-            }
-        }
-
-        return false;
-    }
-
     public void setPosition(Position position) {
         this.position = position;
     }
@@ -76,5 +48,21 @@ public abstract class Element {
 
     public boolean isOutOfScreen() {
         return this.getPosition().getX() + this.getWidth() < -1;
+    }
+
+    public boolean isColliding(Element element) {
+        Position thisPosition = this.getPosition();
+        Position elementPosition = element.getPosition();
+
+        System.out.println(thisPosition + " " + this.getWidth() + " " + this.getHeight());
+        System.out.println(elementPosition + " " + element.getWidth() + " " + element.getHeight());
+
+        boolean xOverlap = thisPosition.getX() < elementPosition.getX() + element.getWidth() &&
+                thisPosition.getX() + this.getWidth() > elementPosition.getX();
+
+        boolean yOverlap = thisPosition.getY() < elementPosition.getY() + element.getHeight() &&
+                thisPosition.getY() + this.getHeight() > elementPosition.getY();
+
+        return xOverlap && yOverlap;
     }
 }

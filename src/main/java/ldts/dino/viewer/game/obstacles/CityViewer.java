@@ -20,7 +20,7 @@ public class CityViewer implements ElementViewer<City> {
 
             Position newPos = new Position(cityPos.getX() + buildingPosition.getX(), buildingPosition.getY());
 
-            Building buildingToDraw = Building.Factory.build(newPos, building.getHeight()) ;
+            Building buildingToDraw = Building.Factory.build(newPos, building.getHeight());
 
             buildingViewer.draw(buildingToDraw, gui);
         }
