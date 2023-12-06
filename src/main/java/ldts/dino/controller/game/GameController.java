@@ -32,5 +32,6 @@ public class GameController extends Controller<Game> {
         motionController.step(application, action, time);
         dinoController.step(application, action, time);
         collisionController.step(application, action, time);
+
     }
 }

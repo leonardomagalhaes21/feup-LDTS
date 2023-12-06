@@ -3,6 +3,7 @@ package ldts.dino.controller.game.elements;
 import ldts.dino.Application;
 import ldts.dino.controller.Controller;
 import ldts.dino.gui.GUI;
+import ldts.dino.gui.LanternaGUI;
 import ldts.dino.model.game.Game;
 import ldts.dino.model.game.elements.Dino;
 import ldts.dino.model.game.elements.Ground;
@@ -34,12 +35,13 @@ public class DinoController extends Controller<Game> {
 
     private void updatePosition() {
         Position position = dino.getPosition();
-        position.setY(position.getY()+dino.getSpeed());
-        dino.setSpeed(dino.getSpeed()+dino.getGravity());
+        position.setY(position.getY() + dino.getSpeed());
+        dino.setSpeed(dino.getSpeed() + dino.getGravity());
+        System.out.println(position);
     }
 
     private void jump() {
-        if(dino.getPosition().getY() >= Ground.HEIGHT - dino.getHeight()) {
+        if(dino.getPosition().getY() > Ground.HEIGHT - dino.getHeight()) {
             dino.setSpeed(-10);
         }
     }

@@ -6,21 +6,21 @@ import ldts.dino.model.game.creators.ObstacleCreator;
 
 public class ElementsFactory {
   private final Game game;
-    private final ObstacleCreator obstacleCreator;
+      private final ObstacleCreator obstacleCreator;
 
   public ElementsFactory(Game game) {
-    this.game = game;
-    this.obstacleCreator = new ObstacleCreator();
+      this.game = game;
+      this.obstacleCreator = new ObstacleCreator();
   }
 
   public void generateObstacle() {
-    game.addObstacle(obstacleCreator.create());
+      game.addObstacle(obstacleCreator.create());
   }
 
   public void step() {
-    if(game.getClock() % 50 == 0) {
-      generateObstacle();
+      if(game.getClock() % 50 == 0) {
+        generateObstacle();
     }
-    game.incrementClock();
+      game.incrementClock();
   }
 }

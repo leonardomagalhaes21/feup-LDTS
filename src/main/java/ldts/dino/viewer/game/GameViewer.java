@@ -5,10 +5,12 @@ import ldts.dino.model.game.Game;
 import ldts.dino.model.game.elements.Element;
 import ldts.dino.model.game.elements.obstacles.City;
 import ldts.dino.model.game.elements.obstacles.Obstacle;
+import ldts.dino.model.game.elements.obstacles.Plane;
 import ldts.dino.utils.Colors;
 import ldts.dino.viewer.Viewer;
 import ldts.dino.viewer.game.obstacles.BuildingViewer;
 import ldts.dino.viewer.game.obstacles.CityViewer;
+import ldts.dino.viewer.game.obstacles.PlaneViewer;
 
 import java.util.List;
 
@@ -30,6 +32,8 @@ public class GameViewer extends Viewer<Game> {
         for (Obstacle obstacle : obstacles) {
             if(obstacle.getClass() == City.class) {
                 new CityViewer().draw((City) obstacle, gui);
+            } else {
+                new PlaneViewer().draw((Plane) obstacle, gui);
             }
         }
     }
