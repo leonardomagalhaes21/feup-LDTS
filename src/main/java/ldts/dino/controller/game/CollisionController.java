@@ -11,6 +11,8 @@ import ldts.dino.model.game.elements.obstacles.Obstacle;
 import ldts.dino.model.menu.GameOverMenu;
 import ldts.dino.state.GameOverState;
 
+import java.util.Iterator;
+
 public class CollisionController extends Controller<Game> {
 
     protected CollisionController(Game model) {
@@ -29,7 +31,12 @@ public class CollisionController extends Controller<Game> {
             }
         }
 
-        for(Collectable collectable: getModel().getCollectables()) {
+        Iterator<Collectable> collectableIterator = getModel().getCollectables().iterator();
+        while (collectableIterator.hasNext()) {
+            Collectable collectable = collectableIterator.next();
+            if (collectable.isColliding(getModel().getDino())) {
+                collectableIterator.remove();
+            }
         }
     }
 }
