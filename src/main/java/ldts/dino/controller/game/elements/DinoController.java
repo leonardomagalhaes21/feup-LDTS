@@ -3,46 +3,52 @@ package ldts.dino.controller.game.elements;
 import ldts.dino.Application;
 import ldts.dino.controller.Controller;
 import ldts.dino.gui.GUI;
-import ldts.dino.gui.LanternaGUI;
 import ldts.dino.model.game.Game;
-import ldts.dino.model.game.elements.Dino;
+import ldts.dino.model.game.elements.dino.CrouchDino;
+import ldts.dino.model.game.elements.dino.Dino;
+import ldts.dino.model.game.elements.dino.NormalDino;
 import ldts.dino.model.game.elements.Ground;
-import ldts.dino.model.game.elements.obstacles.Obstacle;
 import ldts.dino.utils.Position;
 
 public class DinoController extends Controller<Game> {
-    private final Dino dino;
 
     public DinoController(Game model) {
         super(model);
-        this.dino = model.getDino();
     }
     @Override
     public void step(Application application, GUI.ACTION action, long time) {
         dinoForm();
         updatePosition();
-        dino.setScore((float) (dino.getScore() + 0.5));
-        if(action == GUI.ACTION.JUMP) {
-            jump();
+        getModel().getDino().setScore((float) (getModel().getDino().getScore() + 0.5));
+        if(action == GUI.ACTION.JUMP || action == GUI.ACTION.UP){
+            if(getModel().getDino().getClass() == CrouchDino.class) {
+                getModel().setDino(new NormalDino());
+            } else {
+                jump();
+            }
+        } if(action == GUI.ACTION.DOWN) {
+            getModel().setDino(new CrouchDino());
         }
     }
 
     private void dinoForm() {
         if(getModel().getClock() % 5 == 0) {
-            getModel().getDino().changeDinoForm();
+            if(getModel().getDino() instanceof NormalDino){
+                ((NormalDino) getModel().getDino()).changeDinoForm();
+            }
         }
     }
 
     private void updatePosition() {
-        Position position = dino.getPosition();
-        position.setY(position.getY() + dino.getSpeed());
-        dino.setSpeed(dino.getSpeed() + dino.getGravity());
+        Position position = getModel().getDino().getPosition();
+        position.setY(position.getY() + getModel().getDino().getSpeed());
+        getModel().getDino().setSpeed(getModel().getDino().getSpeed() + getModel().getDino().getGravity());
         // System.out.println(position);
     }
 
     private void jump() {
-        if(dino.getPosition().getY() > Ground.HEIGHT - dino.getHeight()) {
-            dino.setSpeed(-10);
+        if(getModel().getDino().getPosition().getY() > Ground.HEIGHT - getModel().getDino().getHeight()) {
+            getModel().getDino().setSpeed(-10);
         }
     }
 }
