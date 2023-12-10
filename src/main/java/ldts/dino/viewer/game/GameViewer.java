@@ -4,6 +4,8 @@ import ldts.dino.gui.GUI;
 import ldts.dino.model.game.Game;
 import ldts.dino.model.game.elements.Element;
 import ldts.dino.model.game.elements.collectables.*;
+import ldts.dino.model.game.elements.dino.CrouchDino;
+import ldts.dino.model.game.elements.dino.NormalDino;
 import ldts.dino.model.game.elements.obstacles.City;
 import ldts.dino.model.game.elements.obstacles.Obstacle;
 import ldts.dino.model.game.elements.obstacles.Plane;
@@ -14,7 +16,6 @@ import ldts.dino.viewer.game.collectables.BombViewer;
 import ldts.dino.viewer.game.collectables.BootsViewer;
 import ldts.dino.viewer.game.collectables.CoinViewer;
 import ldts.dino.viewer.game.collectables.ShieldViewer;
-import ldts.dino.viewer.game.obstacles.BuildingViewer;
 import ldts.dino.viewer.game.obstacles.CityViewer;
 import ldts.dino.viewer.game.obstacles.PlaneViewer;
 
@@ -31,9 +32,17 @@ public class GameViewer extends Viewer<Game> {
         gui.paintBackground(Colors.BLUE.getHex());
         gui.drawText(new Position(1,1), "SCORE: " + (int) getModel().getDino().getScore(), 10, Colors.WHITE.getHex());
         drawElement(gui, getModel().getGround(), new GroundViewer());
-        drawElement(gui, getModel().getDino(), new DinoViewer());
+        drawDino(gui);
         drawObstacles(gui, getModel().getObstacles());
         drawCollectables(gui, getModel().getCollectables());
+    }
+
+    private void drawDino(GUI gui) {
+        if(getModel().getDino() instanceof NormalDino) {
+            drawElement(gui, (NormalDino) getModel().getDino(), new NormalDinoViewer());
+        } else {
+            drawElement(gui, (CrouchDino) getModel().getDino(), new CrouchDinoViewer());
+        }
     }
 
     private void drawObstacles(GUI gui, List<Obstacle> obstacles) {

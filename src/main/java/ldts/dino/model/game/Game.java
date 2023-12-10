@@ -1,18 +1,16 @@
 package ldts.dino.model.game;
 
-import ldts.dino.model.game.elements.Dino;
+import ldts.dino.model.game.elements.dino.Dino;
+import ldts.dino.model.game.elements.dino.NormalDino;
 import ldts.dino.model.game.elements.Ground;
 import ldts.dino.model.game.elements.collectables.Collectable;
-import ldts.dino.model.game.elements.obstacles.City;
 import ldts.dino.model.game.elements.obstacles.Obstacle;
 
 import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.List;
 
 public class Game {
-    private final Dino dino;
+    private Dino dino;
     private final Ground ground;
     private final List<Obstacle> obstaclesList;
     private final List<Collectable> collectablesList;
@@ -20,7 +18,7 @@ public class Game {
     private int clock;
 
     public Game() {
-        this.dino = new Dino();
+        this.dino = new NormalDino();
         this.ground = new Ground();
         this.obstaclesList = new ArrayList<>();
         this.collectablesList = new ArrayList<>();
@@ -57,5 +55,9 @@ public class Game {
 
     public void addCollectable(Collectable collectable) {
         collectablesList.add(collectable);
+    }
+
+    public void setDino(Dino dino) {
+        this.dino = dino;
     }
 }
