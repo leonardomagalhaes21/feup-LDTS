@@ -9,6 +9,8 @@ public class Dino extends Element {
     public final int MAX_SPEED = 10;
     public int gravity = 1;
     public int dinoForm = 1;
+    public float score = 0;
+
     public Dino() {
         super(new Position(30, Ground.HEIGHT - HEIGHT), WIDTH, HEIGHT);
     }
@@ -39,5 +41,12 @@ public class Dino extends Element {
 
     public void setGravity(int gravity) {
         this.gravity = gravity;
+    }
+    public float getScore() {
+        return score;
+    }
+
+    public void setScore(float score) {
+        this.score = score;
     }
 }

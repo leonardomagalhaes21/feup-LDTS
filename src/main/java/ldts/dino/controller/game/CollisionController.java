@@ -6,6 +6,7 @@ import ldts.dino.controller.game.elements.DinoController;
 import ldts.dino.gui.GUI;
 import ldts.dino.model.game.Game;
 import ldts.dino.model.game.elements.Ground;
+import ldts.dino.model.game.elements.collectables.Coin;
 import ldts.dino.model.game.elements.collectables.Collectable;
 import ldts.dino.model.game.elements.obstacles.Obstacle;
 import ldts.dino.model.menu.GameOverMenu;
@@ -34,9 +35,15 @@ public class CollisionController extends Controller<Game> {
         Iterator<Collectable> collectableIterator = getModel().getCollectables().iterator();
         while (collectableIterator.hasNext()) {
             Collectable collectable = collectableIterator.next();
-            if (collectable.isColliding(getModel().getDino())) {
+            if (collectable.isColliding(getModel().getDino()) && collectable.getClass() == Coin.class) {
+                collectableIterator.remove();
+                getModel().getDino().setScore(getModel().getDino().getScore() + 200);
+            }
+            else if (collectable.isColliding(getModel().getDino())) {
                 collectableIterator.remove();
             }
+            //TODO melhorar e aumentar esta implementação
+
         }
     }
 }
