@@ -21,6 +21,7 @@ public class DinoController extends Controller<Game> {
     public void step(Application application, GUI.ACTION action, long time) {
         dinoForm();
         updatePosition();
+        dino.setScore((float) (dino.getScore() + 0.5));
         if(action == GUI.ACTION.JUMP) {
             jump();
         }

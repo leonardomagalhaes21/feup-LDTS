@@ -8,6 +8,7 @@ import ldts.dino.model.game.elements.obstacles.City;
 import ldts.dino.model.game.elements.obstacles.Obstacle;
 import ldts.dino.model.game.elements.obstacles.Plane;
 import ldts.dino.utils.Colors;
+import ldts.dino.utils.Position;
 import ldts.dino.viewer.Viewer;
 import ldts.dino.viewer.game.collectables.BombViewer;
 import ldts.dino.viewer.game.collectables.BootsViewer;
@@ -28,6 +29,7 @@ public class GameViewer extends Viewer<Game> {
     @Override
     protected void drawElements(GUI gui) {
         gui.paintBackground(Colors.BLUE.getHex());
+        gui.drawText(new Position(1,1), "SCORE: " + (int) getModel().getDino().getScore(), 10, Colors.WHITE.getHex());
         drawElement(gui, getModel().getGround(), new GroundViewer());
         drawElement(gui, getModel().getDino(), new DinoViewer());
         drawObstacles(gui, getModel().getObstacles());
