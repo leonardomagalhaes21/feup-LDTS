@@ -37,7 +37,7 @@ public class CollisionController extends Controller<Game> {
             Collectable collectable = collectableIterator.next();
             if (collectable.isColliding(getModel().getDino()) && collectable.getClass() == Coin.class) {
                 collectableIterator.remove();
-                getModel().getDino().setScore(getModel().getDino().getScore() + 200);
+                getModel().setScore(getModel().getScore() + 200);
             }
             else if (collectable.isColliding(getModel().getDino())) {
                 collectableIterator.remove();

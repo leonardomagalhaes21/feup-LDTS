@@ -15,10 +15,4 @@ public class InstructionsViewer extends MenuViewer<InstructionsMenu> {
     protected void drawEntries(GUI gui, Integer entriesX, Integer entriesY) {
 
     }
-
-    @Override
-    protected void drawTextMenu(GUI gui, Integer entriesX, Integer entriesY) {
-        for (int i = 0; i < getModel().getNumberEntries(); i++)
-            drawText(gui, new Position(entriesX + 1, entriesY + i), getModel().getEntry(i), Colors.WHITE.getHex());
-    }
 }

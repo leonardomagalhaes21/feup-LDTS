@@ -26,12 +26,9 @@ public abstract class MenuViewer<T extends Menu> extends Viewer<T> {
 
         drawEntries(gui, entriesX, entriesY);
 
-        drawTextMenu(gui, entriesX, entriesY);
     }
 
     abstract protected void drawEntries(GUI gui, Integer entriesX, Integer entriesY);
-
-    abstract protected void drawTextMenu(GUI gui, Integer entriesX, Integer entriesY);
 
     public void drawText(GUI gui, Position position, String text, String color) {
         gui.drawText(position, text, 10, color);

@@ -19,7 +19,6 @@ public class DinoController extends Controller<Game> {
     public void step(Application application, GUI.ACTION action, long time) {
         dinoForm();
         updatePosition();
-        getModel().getDino().setScore((float) (getModel().getDino().getScore() + 0.5));
         if(action == GUI.ACTION.JUMP || action == GUI.ACTION.UP){
             if(getModel().getDino().getClass() == CrouchDino.class) {
                 getModel().setDino(new NormalDino());

@@ -23,8 +23,4 @@ public class MainMenuViewer extends MenuViewer<MainMenu> {
         }
     }
 
-    @Override
-    protected void drawTextMenu(GUI gui, Integer entriesX, Integer entriesY) {
-
-    }
 }
