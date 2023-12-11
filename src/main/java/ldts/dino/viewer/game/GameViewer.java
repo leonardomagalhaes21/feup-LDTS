@@ -29,12 +29,26 @@ public class GameViewer extends Viewer<Game> {
 
     @Override
     protected void drawElements(GUI gui) {
-        gui.paintBackground(Colors.BLUE.getHex());
-        gui.drawText(new Position(1,1), "SCORE: " + (int) getModel().getScore(), 10, Colors.WHITE.getHex());
+        drawBackground(gui);
+        drawScore(gui);
+        drawBombCounter(gui);
         drawElement(gui, getModel().getGround(), new GroundViewer());
         drawDino(gui);
         drawObstacles(gui, getModel().getObstacles());
         drawCollectables(gui, getModel().getCollectables());
+    }
+
+    private void drawBackground(GUI gui) {
+        gui.paintBackground(Colors.BLUE.getHex());
+    }
+
+    private void drawBombCounter(GUI gui) {
+        gui.drawText(new Position(getModel().getGround().getWidth()-30, 1),  getModel().getDino().getBombs().size() + "x" ,10, Colors.WHITE.getHex());
+        gui.drawImageFromFile(new Position(getModel().getGround().getWidth()-10, 1), "bomb");
+    }
+
+    private void drawScore(GUI gui) {
+        gui.drawText(new Position(1,1), "SCORE: " + (int) getModel().getScore(), 10, Colors.WHITE.getHex());
     }
 
     private void drawDino(GUI gui) {
