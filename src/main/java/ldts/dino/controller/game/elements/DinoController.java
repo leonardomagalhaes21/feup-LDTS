@@ -26,7 +26,8 @@ public class DinoController extends Controller<Game> {
                 jump();
             }
         } if(action == GUI.ACTION.DOWN) {
-            getModel().setDino(new CrouchDino());
+            getModel().setDino(new CrouchDino(getModel().getDino().getPosition()));
+            getModel().getDino().setSpeed(10);
         }
     }
 
