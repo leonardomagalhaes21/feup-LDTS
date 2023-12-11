@@ -60,12 +60,13 @@ public class LanternaGUI implements GUI {
         if (keyStroke == null) return ACTION.NONE;
 
         if (keyStroke.getKeyType() == KeyType.EOF) return ACTION.QUIT;
-        if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q') return ACTION.QUIT;
+        if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q' ||
+                keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'Q') return ACTION.QUIT;
         if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == ' ') return ACTION.JUMP;
         if (keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.DOWN;
         if (keyStroke.getKeyType() == KeyType.ArrowUp) return ACTION.UP;
         if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
-
+        if (keyStroke.getKeyType() == KeyType.ArrowRight) return ACTION.BOMB;
         if (keyStroke.getKeyType() == KeyType.Escape) return ACTION.BACK;
 
 
@@ -123,7 +124,6 @@ public class LanternaGUI implements GUI {
     @Override
     public void drawText(Position position, String text, int size, String color) {
         BufferedImage textSprite = spb.loadText(new SpriteBuilder.TextDetails(text, size, color));
-
         drawImage(position, textSprite);
     }
 

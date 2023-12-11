@@ -22,6 +22,6 @@ public class Bomb extends Collectable{
 
     @Override
     public void consume(Game game) {
-
+        game.getDino().getBombs().add(1);
     }
 }

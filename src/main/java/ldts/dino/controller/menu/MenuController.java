@@ -25,7 +25,8 @@ public abstract class MenuController<T extends Menu> extends Controller<T> imple
             case BACK:
                 backSelected(application);
                 break;
-            case QUIT: application.setState(null);
+            case QUIT:
+                application.setState(null);
                 break;
         }
     }

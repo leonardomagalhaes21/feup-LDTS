@@ -27,6 +27,16 @@ public class GameController extends Controller<Game> {
             case QUIT:
                 application.setState(null);
                 break;
+            case BOMB:
+                if (!getModel().getDino().getBombs().isEmpty()) {
+                    getModel().getDino().getBombs().remove(0);
+                    if (getModel().getDino().getPosition().getX() > getModel().getObstacles().get(0).getPosition().getX()) {
+                        getModel().getObstacles().remove(1);
+                    }
+                    else {
+                        getModel().getObstacles().remove(0);
+                    }
+                }
         }
         getModel().setScore((float) (getModel().getScore() + 0.5));
         elementsFactory.step();
