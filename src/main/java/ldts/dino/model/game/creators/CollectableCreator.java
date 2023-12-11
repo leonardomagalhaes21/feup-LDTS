@@ -1,5 +1,6 @@
 package ldts.dino.model.game.creators;
 
+import ldts.dino.model.game.Game;
 import ldts.dino.model.game.elements.collectables.*;
 
 import java.util.Random;
