@@ -7,7 +7,7 @@ public class CrouchDino extends Dino {
     public static int HEIGHT = 20;
     public static int WIDTH = 40;
 
-    public CrouchDino() {
-        super(new Position(30, Ground.HEIGHT - HEIGHT), WIDTH, HEIGHT);
+    public CrouchDino(Position position) {
+        super(position, WIDTH, HEIGHT);
     }
 }

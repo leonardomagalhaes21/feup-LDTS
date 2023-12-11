@@ -16,14 +16,13 @@ public class Game {
     private final List<Collectable> collectablesList;
     public float score = 0;
 
-    private int clock;
+    private int clock = 0;
 
     public Game() {
         this.dino = new NormalDino();
         this.ground = new Ground();
         this.obstaclesList = new ArrayList<>();
         this.collectablesList = new ArrayList<>();
-        this.clock = 0;
     }
 
     public Dino getDino() {
