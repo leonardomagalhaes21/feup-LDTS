@@ -25,8 +25,25 @@ public class ElementsFactory {
     }
 
     public void step() {
-        if(game.getClock() % 50 == 0) generateObstacle();
-        else if (game.getClock() % 90 == 0) generateCollectable();
-        game.updateClock();
+        if (game.getScore() <= 250) {
+            if (game.getClock() % 50 == 0) generateObstacle();
+            else if (game.getClock() % 90 == 0) generateCollectable();
+            game.updateClock();
+        }
+        else if (game.getScore() <= 500) {
+            if (game.getClock() % 40 == 0) generateObstacle();
+            else if (game.getClock() % 90 == 0) generateCollectable();
+            game.updateClock();
+        }
+        else if (game.getScore() <= 750) {
+            if (game.getClock() % 30 == 0) generateObstacle();
+            else if (game.getClock() % 80 == 0) generateCollectable();
+            game.updateClock();
+        }
+        else {
+            if (game.getClock() % 20 == 0) generateObstacle();
+            else if (game.getClock() % 70 == 0) generateCollectable();
+            game.updateClock();
+        }
     }
 }

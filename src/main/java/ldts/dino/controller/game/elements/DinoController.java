@@ -43,7 +43,6 @@ public class DinoController extends Controller<Game> {
         Position position = getModel().getDino().getPosition();
         position.setY(position.getY() + getModel().getDino().getSpeed());
         getModel().getDino().setSpeed(getModel().getDino().getSpeed() + getModel().getDino().getGravity());
-        // System.out.println(position);
     }
 
     private void jump() {
