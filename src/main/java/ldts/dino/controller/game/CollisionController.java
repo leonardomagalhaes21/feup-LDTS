@@ -34,6 +34,19 @@ public class CollisionController extends Controller<Game> {
             }
         }
 
+        else {
+            for (Obstacle obstacle : getModel().getObstacles()) {
+                if (obstacle.isColliding(getModel().getDino())) {
+                    if (getModel().getDino().getPosition().getX() > getModel().getObstacles().get(0).getPosition().getX()) {
+                        getModel().getObstacles().remove(1);
+                    }
+                    else {
+                        getModel().getObstacles().remove(0);
+                    }
+                }
+            }
+        }
+
         Iterator<Collectable> collectableIterator = getModel().getCollectables().iterator();
         while (collectableIterator.hasNext()) {
             Collectable collectable = collectableIterator.next();

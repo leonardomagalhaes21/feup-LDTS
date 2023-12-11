@@ -12,6 +12,7 @@ public class Boots extends Collectable {
     public static final int WIDTH = 10;
     public static final int HEIGHT = 10;
     private final Random random;
+    public boolean hasBoots = false;
 
     public Boots() {
         super(new Position(LanternaGUI.WIDTH, 50), WIDTH, HEIGHT);
@@ -22,6 +23,5 @@ public class Boots extends Collectable {
 
     @Override
     public void consume(Game game) {
-
     }
 }

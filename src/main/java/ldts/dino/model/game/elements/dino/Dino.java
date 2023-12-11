@@ -11,12 +11,11 @@ public abstract class Dino extends Element {
     public int speed = 1;
     public final int MAX_SPEED = 10;
     public int gravity = 1;
-    public static List<Integer> bombs;
+    public static List<Integer> bombs = new ArrayList<>();
 
 
     public Dino(Position position, int width, int height) {
         super(position, width, height);
-        this.bombs = new ArrayList<>();
     }
 
     public int getSpeed() {

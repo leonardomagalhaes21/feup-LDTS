@@ -17,7 +17,6 @@ public class Game {
     private final List<Collectable> collectablesList;
     public float score = 0;
     private int clock = 0;
-
     private boolean shieldActivated = false;
     private int shieldClock = 0;
 
@@ -73,7 +72,6 @@ public class Game {
         collectable.consume(this);
     }
 
-    // updateClock
     public void updateClock() {
         clock++;
         if(shieldActivated) {
@@ -92,4 +90,5 @@ public class Game {
     public boolean isShieldActivated() {
         return shieldActivated;
     }
+
 }
