@@ -30,7 +30,7 @@ public class GameViewer extends Viewer<Game> {
     @Override
     protected void drawElements(GUI gui) {
         gui.paintBackground(Colors.BLUE.getHex());
-        gui.drawText(new Position(1,1), "SCORE: " + (int) getModel().getDino().getScore(), 10, Colors.WHITE.getHex());
+        gui.drawText(new Position(1,1), "SCORE: " + (int) getModel().getScore(), 10, Colors.WHITE.getHex());
         drawElement(gui, getModel().getGround(), new GroundViewer());
         drawDino(gui);
         drawObstacles(gui, getModel().getObstacles());

@@ -23,9 +23,4 @@ public class GameOverViewer extends MenuViewer<GameOverMenu>{
             }
         }
     }
-
-    @Override
-    protected void drawTextMenu(GUI gui, Integer entriesX, Integer entriesY) {
-
-    }
 }

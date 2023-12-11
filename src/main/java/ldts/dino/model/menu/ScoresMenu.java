@@ -5,6 +5,6 @@ import java.util.Arrays;
 public class ScoresMenu extends Menu {
 
     public ScoresMenu() {
-        this.entries = Arrays.asList("99 - USER1", "98 - USER2", "97 - USER3", "96 - USER4");
+        this.entries = Arrays.asList("1 - 5000", "2 - 4000", "3 - 2");
     }
 }

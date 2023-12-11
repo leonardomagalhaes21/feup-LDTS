@@ -28,6 +28,7 @@ public class GameController extends Controller<Game> {
                 application.setState(null);
                 break;
         }
+        getModel().setScore((float) (getModel().getScore() + 0.5));
         elementsFactory.step();
         motionController.step(application, action, time);
         dinoController.step(application, action, time);

@@ -14,6 +14,7 @@ public class Game {
     private final Ground ground;
     private final List<Obstacle> obstaclesList;
     private final List<Collectable> collectablesList;
+    public float score = 0;
 
     private int clock;
 
@@ -59,5 +60,13 @@ public class Game {
 
     public void setDino(Dino dino) {
         this.dino = dino;
+    }
+
+    public float getScore() {
+        return score;
+    }
+
+    public void setScore(float score) {
+        this.score = score;
     }
 }
