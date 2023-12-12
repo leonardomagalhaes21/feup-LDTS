@@ -28,8 +28,8 @@ public class GameController extends Controller<Game> {
                 application.setState(null);
                 break;
             case BOMB:
-                if (!getModel().getDino().getBombs().isEmpty() && !getModel().getObstacles().isEmpty()) {
-                    getModel().getDino().getBombs().remove(0);
+                    if (getModel().getBombs() != 0 && !getModel().getObstacles().isEmpty()) {
+                    getModel().removeBomb();
                     if (getModel().getDino().getPosition().getX() > getModel().getObstacles().get(0).getPosition().getX()) {
                         getModel().getObstacles().remove(1);
                     }

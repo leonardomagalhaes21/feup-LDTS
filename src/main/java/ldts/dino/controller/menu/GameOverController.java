@@ -17,11 +17,9 @@ public class GameOverController extends MenuController<GameOverMenu> {
     @Override
     public void entrySelected(Application application) {
         if(getModel().isSelectedRestart()) {
-            Dino.bombs.clear();
             application.setState(new GameState(new Game()));
         }
         else if(getModel().isSelectedMenu()) {
-            Dino.bombs.clear();
             application.setState(new MainMenuState(new MainMenu()));
             Menu.setCurrentEntry(0);
         }

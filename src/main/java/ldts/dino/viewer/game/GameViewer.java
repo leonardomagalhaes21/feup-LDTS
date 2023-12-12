@@ -1,6 +1,7 @@
 package ldts.dino.viewer.game;
 
 import ldts.dino.gui.GUI;
+import ldts.dino.gui.LanternaGUI;
 import ldts.dino.model.game.Game;
 import ldts.dino.model.game.elements.Element;
 import ldts.dino.model.game.elements.collectables.*;
@@ -43,7 +44,7 @@ public class GameViewer extends Viewer<Game> {
     }
 
     private void drawBombCounter(GUI gui) {
-        gui.drawText(new Position(getModel().getGround().getWidth()-30, 1),  getModel().getDino().getBombs().size() + "x" ,10, Colors.WHITE.getHex());
+        gui.drawText(new Position(LanternaGUI.WIDTH - 40, 1),  getModel().getBombs() + "/" + Game.BOMBS_LIMIT,10, Colors.WHITE.getHex());
         gui.drawImageFromFile(new Position(getModel().getGround().getWidth()-10, 1), "bomb");
     }
 

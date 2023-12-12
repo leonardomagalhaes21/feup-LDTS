@@ -23,6 +23,6 @@ public class Boots extends Collectable {
 
     @Override
     public void consume(Game game) {
-        game.getDino().setHasBoots(true);
+        game.startBoots();
     }
 }

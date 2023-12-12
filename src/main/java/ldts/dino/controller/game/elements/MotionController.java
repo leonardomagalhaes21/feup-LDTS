@@ -18,6 +18,7 @@ public class MotionController extends Controller<Game> {
     public void step(Application application, GUI.ACTION action, long time) {
         moveObstacles();
         moveCollectables();
+        difficultyControl();
     }
 
     private void moveObstacles() {
@@ -41,6 +42,28 @@ public class MotionController extends Controller<Game> {
         }
     }
 
+    private void difficultyControl() {
+        if (getModel().getScore() == 250) {
+            Obstacle.incrementSpeed();
+            Collectable.incrementSpeed();
+        }
+        else if (getModel().getScore() == 500) {
+            Obstacle.incrementSpeed();
+            Collectable.incrementSpeed();
+        }
+        else if (getModel().getScore() == 1000) {
+            Obstacle.incrementSpeed();
+            Collectable.incrementSpeed();
+        }
+        else if (getModel().getScore() == 1500) {
+            Obstacle.incrementSpeed();
+            Collectable.incrementSpeed();
+        }
 
+        else if (getModel().getScore() == 2000) {
+            Obstacle.incrementSpeed();
+            Collectable.incrementSpeed();
+        }
+    }
 
 }

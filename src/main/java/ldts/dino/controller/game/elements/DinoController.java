@@ -23,7 +23,7 @@ public class DinoController extends Controller<Game> {
             if(getModel().getDino().getClass() == CrouchDino.class) {
                 getModel().setDino(new NormalDino());
             } else {
-                jump(getModel().getDino().getHasBoots());
+                jump(getModel().isBootsActivated());
             }
         } if(action == GUI.ACTION.DOWN) {
             getModel().setDino(new CrouchDino(getModel().getDino().getPosition()));
@@ -35,6 +35,9 @@ public class DinoController extends Controller<Game> {
         if(getModel().getClock() % 5 == 0) {
             if(getModel().getDino() instanceof NormalDino){
                 ((NormalDino) getModel().getDino()).changeDinoForm();
+            }
+            else if(getModel().getDino() instanceof CrouchDino){
+                ((CrouchDino) getModel().getDino()).changeDinoForm();
             }
         }
     }
