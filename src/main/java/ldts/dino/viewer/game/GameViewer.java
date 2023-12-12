@@ -37,6 +37,13 @@ public class GameViewer extends Viewer<Game> {
         drawDino(gui);
         drawObstacles(gui, getModel().getObstacles());
         drawCollectables(gui, getModel().getCollectables());
+        drawExplosion(gui);
+    }
+
+    private void drawExplosion(GUI gui) {
+        if(getModel().getExplosion() != null) {
+            gui.drawImageFromFile(getModel().getExplosion(), "explosion");
+        }
     }
 
     private void drawBackground(GUI gui) {

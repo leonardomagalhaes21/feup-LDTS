@@ -1,10 +1,12 @@
 package ldts.dino.model.game;
 
+import ldts.dino.model.game.elements.Element;
 import ldts.dino.model.game.elements.dino.Dino;
 import ldts.dino.model.game.elements.dino.NormalDino;
 import ldts.dino.model.game.elements.Ground;
 import ldts.dino.model.game.elements.collectables.Collectable;
 import ldts.dino.model.game.elements.obstacles.Obstacle;
+import ldts.dino.utils.Position;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,16 +22,20 @@ public class Game {
     private boolean shieldActivated = false;
     private int shieldClock = 0;
     private int bootsClock = 0;
+    private int explosionClock = 0;
     private boolean bootsActivated = false;
     public static final int BOMBS_LIMIT = 5;
     public static final int CLOCK_LIMIT = 100;
+    public static final int EXPLOSION_CLOCK = 5;
+
+    private Position explosion = null;
 
     public Game() {
         this.dino = new NormalDino();
         this.ground = new Ground();
         this.obstaclesList = new ArrayList<>();
         this.collectablesList = new ArrayList<>();
-        this.bombs = 0;
+        this.bombs = 5;
     }
 
     public Dino getDino() {
@@ -103,6 +109,13 @@ public class Game {
                 bootsActivated = false;
             }
         }
+        if(getExplosion() != null) {
+            explosionClock++;
+            if(explosionClock == EXPLOSION_CLOCK) {
+                explosionClock = 0;
+                setExplosion(null);
+            }
+        }
     }
 
     public void startShield() {
@@ -123,4 +136,11 @@ public class Game {
         bootsClock = 0;
     }
 
+    public Position getExplosion() {
+        return explosion;
+    }
+
+    public void setExplosion(Position explosion) {
+        this.explosion = explosion;
+    }
 }
