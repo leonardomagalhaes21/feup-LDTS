@@ -33,7 +33,6 @@ public class CollisionController extends Controller<Game> {
                 } else {
                     application.setState(new GameOverState(new GameOverMenu(), (int) getModel().getScore()));
                     return;
-
                 }
             }
         }
@@ -42,11 +41,10 @@ public class CollisionController extends Controller<Game> {
         while (collectableIterator.hasNext()) {
             Collectable collectable = collectableIterator.next();
             if (collectable.isColliding(getModel().getDino())) {
-                getModel().consumeCollectable(collectable);
                 if(collectable.getClass() != Bomb.class || getModel().getBombs() < Game.BOMBS_LIMIT) {
                     collectableIterator.remove();
                 }
-
+                getModel().consumeCollectable(collectable);
             }
         }
     }
