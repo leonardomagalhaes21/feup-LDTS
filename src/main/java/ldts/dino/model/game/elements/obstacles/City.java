@@ -10,6 +10,7 @@ import java.util.List;
 import java.util.Random;
 
 import static java.lang.Math.max;
+import static java.lang.Math.min;
 
 public class City extends Obstacle {
     private List<Building> buildings;
@@ -44,6 +45,7 @@ public class City extends Obstacle {
             this.setHeight(max(this.getHeight(), newBuilding.getHeight()));
             this.buildings.add(newBuilding);
             this.lastPosition = new Position(newBuilding.getPosition().getX() + newBuilding.getWidth() + 1, newBuilding.getPosition().getY());
+            this.getPosition().setY(min(getPosition().getY(), newBuilding.getPosition().getY()));
         }
     }
 
