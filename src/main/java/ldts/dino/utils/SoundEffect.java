@@ -14,17 +14,19 @@ public class SoundEffect {
     private final Clip menuSelectionSound;
     private final Clip pickSound;
     private float musicVolume = 1.0F;
-    private float fxVolume = 1.0F;
+    private final float fxVolume = 1.0F;
     public SoundEffect() {
-        System.out.println("bloat");
         this.bombSound = loadMusic("/src/main/resources/sound-effects/bomb.wav");
         this.crouchSound = loadMusic("/src/main/resources/sound-effects/crouch.wav");
+
         this.gameOverSound = loadMusic("/src/main/resources/sound-effects/game_over.wav");
         this.jumpSound = loadMusic("/src/main/resources/sound-effects/jump.wav");
+
         this.menuSelectionSound = loadMusic("/src/main/resources/sound-effects/menu_selection.wav");
         this.pickSound = loadMusic("/src/main/resources/sound-effects/pick.wav");
+
         //setMusicVolume(0.7F);
-        setFxVolume(0.8F);
+        setFxVolume();
     }
     public static SoundEffect getInstance() {
         if (instance == null) {
@@ -44,6 +46,7 @@ public class SoundEffect {
             return musicClip;
         } catch (Exception e) {
             e.printStackTrace();
+            System.out.println("Error loading music file: " + filePath);
         }
         return null;
     }
@@ -52,12 +55,12 @@ public class SoundEffect {
         bombSound.start();
         bombSound.loop(0);
     }
-
     public void playCrouchSound() {
         crouchSound.setMicrosecondPosition(0);
         crouchSound.start();
         crouchSound.loop(0);
     }
+
     public void playGameOverSound() {
         gameOverSound.setMicrosecondPosition(0);
         gameOverSound.start();
@@ -68,6 +71,7 @@ public class SoundEffect {
         jumpSound.start();
         jumpSound.loop(0);
     }
+
     public void playMenuSelectionSound() {
         menuSelectionSound.setMicrosecondPosition(0);
         menuSelectionSound.start();
@@ -78,27 +82,24 @@ public class SoundEffect {
         pickSound.start();
         pickSound.loop(0);
     }
-    /*public void setMusicVolume(float volume) {
+
+/*
+    public void setMusicVolume(float volume) {
         if (volume > 1.0F)
             volume = 1.0F;
         else if (volume < 0.0F)
             volume = 0.0F;
         musicVolume  = volume;
         setClipVolume(gameMusic, musicVolume);
-    }*/
-
+    }
+*/
     public float getMusicVolume() {
         return this.musicVolume;
     }
     public float getSFXVolume(){ return this.fxVolume;}
-    public void setFxVolume(float volume) {
-        if (volume > 1.0F)
-            volume = 1.0F;
-        else if (volume < 0.0F)
-            volume = 0.0F;
-        fxVolume  = volume;
-        setClipVolume(bombSound, fxVolume);
-        setClipVolume(crouchSound,fxVolume);
+    public void setFxVolume() {
+        setClipVolume(bombSound, 0.8F);
+        setClipVolume(crouchSound,0.8F);
         setClipVolume(gameOverSound,fxVolume);
         setClipVolume(jumpSound,fxVolume);
         setClipVolume(menuSelectionSound,fxVolume);

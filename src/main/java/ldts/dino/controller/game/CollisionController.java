@@ -32,6 +32,7 @@ public class CollisionController extends Controller<Game> {
                 if(getModel().isShieldActivated()) {
                     obstacleIterator.remove();
                 } else {
+                    SoundEffect.getInstance().playGameOverSound();
                     application.setState(new GameOverState(new GameOverMenu(), (int) getModel().getScore()));
                     return;
                 }

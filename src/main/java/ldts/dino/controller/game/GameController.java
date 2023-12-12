@@ -6,6 +6,7 @@ import ldts.dino.controller.game.elements.DinoController;
 import ldts.dino.controller.game.elements.MotionController;
 import ldts.dino.gui.GUI;
 import ldts.dino.model.game.Game;
+import ldts.dino.utils.SoundEffect;
 
 public class GameController extends Controller<Game> {
     private final ElementsFactory elementsFactory;
@@ -28,6 +29,7 @@ public class GameController extends Controller<Game> {
                 application.setState(null);
                 break;
             case BOMB:
+                    SoundEffect.getInstance().playBombSound();
                     if (getModel().getBombs() != 0 && !getModel().getObstacles().isEmpty()) {
                     getModel().removeBomb();
                     if (getModel().getDino().getPosition().getX() > getModel().getObstacles().get(0).getPosition().getX()) {
