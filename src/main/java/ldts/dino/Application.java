@@ -4,6 +4,7 @@ import ldts.dino.gui.LanternaGUI;
 import ldts.dino.model.menu.MainMenu;
 import ldts.dino.state.MainMenuState;
 import ldts.dino.state.State;
+import ldts.dino.utils.SoundManager;
 
 import java.awt.*;
 import java.io.IOException;
@@ -16,6 +17,7 @@ public class Application {
     public Application() throws IOException, URISyntaxException, FontFormatException {
         this.gui = new LanternaGUI();
         this.state = new MainMenuState(new MainMenu());
+        SoundManager.getInstance().startGameMusic();
         //TODO
     }
 
