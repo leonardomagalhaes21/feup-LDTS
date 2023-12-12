@@ -11,7 +11,6 @@ public class Shield extends Collectable {
     public Position position;
     public static final int WIDTH = 10;
     public static final int HEIGHT = 10;
-    public static final int CLOCK = 100;
     private final Random random;
 
     public Shield() {

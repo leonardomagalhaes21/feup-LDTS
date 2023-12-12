@@ -22,6 +22,8 @@ public class Bomb extends Collectable{
 
     @Override
     public void consume(Game game) {
-        game.getDino().getBombs().add(1);
+       if (game.getBombs() < Game.BOMBS_LIMIT) {
+           game.addBomb();
+       }
     }
 }

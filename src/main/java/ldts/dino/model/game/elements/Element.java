@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class Element {
+    private static int speed;
     private Position position;
     private int width;
     private int height;
@@ -61,5 +62,13 @@ public abstract class Element {
                 thisPosition.getY() + this.getHeight() >= elementPosition.getY();
 
         return xOverlap && yOverlap;
+    }
+
+    public static void incrementSpeed() {
+        speed++;
+    }
+
+    public int getSpeed() {
+        return speed;
     }
 }
