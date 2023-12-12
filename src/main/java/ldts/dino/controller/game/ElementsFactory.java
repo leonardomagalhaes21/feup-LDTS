@@ -25,8 +25,9 @@ public class ElementsFactory {
     }
 
     public void step() {
-            if (game.getClock() % 50 == 0) generateObstacle();
-            else if (game.getClock() % 90 == 0) generateCollectable();
-            game.updateClock();
+        if (game.getClock() % 50 == 0) generateObstacle();
+        else if (game.getClock() % 90  == 0) generateCollectable();
+
+        game.updateClock();
     }
 }

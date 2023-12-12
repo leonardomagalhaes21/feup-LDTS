@@ -19,11 +19,11 @@ public class Game {
     private int bombs;
     public float score = 0;
     private int clock = 0;
-    private boolean shieldActivated = true;
+    private boolean shieldActivated = false;
     private int shieldClock = 0;
     private int bootsClock = 0;
     private int explosionClock = 0;
-    private boolean bootsActivated = true;
+    private boolean bootsActivated = false;
     public static final int BOMBS_LIMIT = 5;
     public static final int CLOCK_LIMIT = 100;
     public static final int EXPLOSION_CLOCK = 5;
