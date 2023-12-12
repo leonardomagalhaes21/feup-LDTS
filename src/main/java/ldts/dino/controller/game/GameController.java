@@ -29,7 +29,7 @@ public class GameController extends Controller<Game> {
                 application.setState(null);
                 break;
             case BOMB:
-                SoundManager.getInstance().playBombSound();
+                if (getModel().getBombs() != 0) SoundManager.getInstance().playBombSound();
                 if (getModel().getBombs() != 0 && !getModel().getObstacles().isEmpty()) {
                     getModel().removeBomb();
 
