@@ -38,6 +38,18 @@ public class GameViewer extends Viewer<Game> {
         drawObstacles(gui, getModel().getObstacles());
         drawCollectables(gui, getModel().getCollectables());
         drawExplosion(gui);
+        drawProgressBar(gui);
+    }
+
+    private void drawProgressBar(GUI gui) {
+        if(getModel().isShieldActivated()) {
+            gui.drawImageFromFile(new Position(1, 1), "shield");
+            gui.drawArea(new Position(15, 3), (Game.CLOCK_LIMIT - getModel().getShieldClock()) / 2, 6, Colors.GREEN.getHex());
+        }
+        if(getModel().isBootsActivated()) {
+            gui.drawImageFromFile(new Position(1, 15), "boots");
+            gui.drawArea(new Position(15, 18), (Game.CLOCK_LIMIT - getModel().getBootsClock()) / 2, 6, Colors.GREEN.getHex());
+        }
     }
 
     private void drawExplosion(GUI gui) {
@@ -56,7 +68,7 @@ public class GameViewer extends Viewer<Game> {
     }
 
     private void drawScore(GUI gui) {
-        gui.drawText(new Position(1,1), "SCORE: " + (int) getModel().getScore(), 10, Colors.WHITE.getHex());
+        gui.drawText(new Position(LanternaGUI.WIDTH / 2 - 40,1), "SCORE: " + (int) getModel().getScore(), 10, Colors.WHITE.getHex());
     }
 
     private void drawDino(GUI gui) {

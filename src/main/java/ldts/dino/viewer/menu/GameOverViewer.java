@@ -17,7 +17,7 @@ public class GameOverViewer extends MenuViewer<GameOverMenu>{
     protected void drawEntries(GUI gui, Integer entriesX, Integer entriesY) {
         for (int i = 0; i < getModel().getNumberEntries(); i++) {
             if (getModel().isSelected(i)) {
-                drawText(gui, new Position(entriesX, entriesY + i * 15), getModel().getEntry(i), Colors.ORANGE.getHex());
+                drawText(gui, new Position(entriesX, entriesY + i * 15), getModel().getEntry(i), Colors.MENU.getHex());
             } else {
                 drawText(gui, new Position(entriesX + 1, entriesY + i * 15), getModel().getEntry(i), Colors.WHITE.getHex());
             }

@@ -1,16 +1,12 @@
 package ldts.dino.utils;
 
 public enum Colors {
-    ORANGE("#FC6A03"),
+    MENU("#3bd156"),
     BLUE("#8ECAE6"),
-    DARK_BLUE("#08001f"),
-    GREEN("#6b9e06"),
-    DARK_GREEN("#3B5110"),
-    WHITE("#e8e8e8"),
-    MENU_BACKGROUND("#358e9c"),
-    BROWN("#624226"),
-    BLACK("#000001"),
-    GREY("#969696");
+    GREEN("#499a3c"),
+    GROUND("#474c55"),
+    WHITE("#f2f2f2"),
+    BLACK("#000001");
 
     private final String hex;
 

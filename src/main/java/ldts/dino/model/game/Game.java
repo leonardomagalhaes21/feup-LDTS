@@ -19,11 +19,11 @@ public class Game {
     private int bombs;
     public float score = 0;
     private int clock = 0;
-    private boolean shieldActivated = false;
+    private boolean shieldActivated = true;
     private int shieldClock = 0;
     private int bootsClock = 0;
     private int explosionClock = 0;
-    private boolean bootsActivated = false;
+    private boolean bootsActivated = true;
     public static final int BOMBS_LIMIT = 5;
     public static final int CLOCK_LIMIT = 100;
     public static final int EXPLOSION_CLOCK = 5;
@@ -35,7 +35,7 @@ public class Game {
         this.ground = new Ground();
         this.obstaclesList = new ArrayList<>();
         this.collectablesList = new ArrayList<>();
-        this.bombs = 5;
+        this.bombs = 0;
     }
 
     public Dino getDino() {
@@ -142,5 +142,13 @@ public class Game {
 
     public void setExplosion(Position explosion) {
         this.explosion = explosion;
+    }
+
+    public int getShieldClock() {
+        return shieldClock;
+    }
+
+    public int getBootsClock() {
+        return bootsClock;
     }
 }

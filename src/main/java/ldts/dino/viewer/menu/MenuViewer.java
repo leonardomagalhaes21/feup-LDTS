@@ -22,7 +22,7 @@ public abstract class MenuViewer<T extends Menu> extends Viewer<T> {
     public void drawElements(GUI gui) {
         gui.drawImageFromFile(new Position(0, 0), "background");
 
-        gui.drawText(new Position(LanternaGUI.WIDTH / 2 - 50, 40), "DINO", 30, Colors.ORANGE.getHex());
+        gui.drawText(new Position(LanternaGUI.WIDTH / 2 - 50, 40), "DINO", 30, Colors.MENU.getHex());
 
         drawEntries(gui, entriesX, entriesY);
 

@@ -8,6 +8,6 @@ import ldts.dino.utils.Colors;
 public class GroundViewer implements ElementViewer<Ground> {
     @Override
     public void draw(Ground ground, GUI gui) {
-        gui.drawArea(ground.getPosition(), ground.getWidth(), ground.getHeight(), Colors.GREEN.getHex());
+        gui.drawArea(ground.getPosition(), ground.getWidth(), ground.getHeight(), Colors.GROUND.getHex());
     }
 }
