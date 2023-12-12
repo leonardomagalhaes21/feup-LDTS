@@ -25,24 +25,17 @@ public class CollisionController extends Controller<Game> {
         if(getModel().getGround().isColliding(getModel().getDino())) {
             getModel().getDino().getPosition().setY(getModel().getGround().getPosition().getY() - getModel().getDino().getHeight());
         }
-        if(!getModel().isShieldActivated()) {
-            for (Obstacle obstacle : getModel().getObstacles()) {
-                if (obstacle.isColliding(getModel().getDino())) {
+
+        Iterator<Obstacle> obstacleIterator = getModel().getObstacles().iterator();
+        while (obstacleIterator.hasNext()) {
+            Obstacle obstacle = obstacleIterator.next();
+            if (obstacle.isColliding(getModel().getDino())) {
+                if(getModel().isShieldActivated()) {
+                    obstacleIterator.remove();
+                } else {
                     application.setState(new GameOverState(new GameOverMenu(), (int) getModel().getScore()));
                     return;
-                }
-            }
-        }
 
-        else {
-            for (Obstacle obstacle : getModel().getObstacles()) {
-                if (obstacle.isColliding(getModel().getDino())) {
-                    if (getModel().getDino().getPosition().getX() > getModel().getObstacles().get(0).getPosition().getX()) {
-                        getModel().getObstacles().remove(1);
-                    }
-                    else {
-                        getModel().getObstacles().remove(0);
-                    }
                 }
             }
         }
