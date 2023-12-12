@@ -9,7 +9,7 @@ import ldts.dino.model.game.elements.collectables.Collectable;
 import ldts.dino.model.game.elements.obstacles.Obstacle;
 import ldts.dino.model.menu.GameOverMenu;
 import ldts.dino.state.GameOverState;
-import ldts.dino.utils.SoundEffect;
+import ldts.dino.utils.SoundManager;
 
 import java.util.Iterator;
 
@@ -32,7 +32,7 @@ public class CollisionController extends Controller<Game> {
                 if(getModel().isShieldActivated()) {
                     obstacleIterator.remove();
                 } else {
-                    SoundEffect.getInstance().playGameOverSound();
+                    SoundManager.getInstance().playGameOverSound();
                     application.setState(new GameOverState(new GameOverMenu(), (int) getModel().getScore()));
                     return;
                 }
@@ -43,7 +43,7 @@ public class CollisionController extends Controller<Game> {
         while (collectableIterator.hasNext()) {
             Collectable collectable = collectableIterator.next();
             if (collectable.isColliding(getModel().getDino())) {
-                SoundEffect.getInstance().playPickSound();
+                SoundManager.getInstance().playPickSound();
                 if(collectable.getClass() != Bomb.class || getModel().getBombs() < Game.BOMBS_LIMIT) {
                     collectableIterator.remove();
                 }

@@ -5,11 +5,10 @@ import ldts.dino.controller.Controller;
 import ldts.dino.gui.GUI;
 import ldts.dino.model.game.Game;
 import ldts.dino.model.game.elements.dino.CrouchDino;
-import ldts.dino.model.game.elements.dino.Dino;
 import ldts.dino.model.game.elements.dino.NormalDino;
 import ldts.dino.model.game.elements.Ground;
 import ldts.dino.utils.Position;
-import ldts.dino.utils.SoundEffect;
+import ldts.dino.utils.SoundManager;
 
 public class DinoController extends Controller<Game> {
 
@@ -27,7 +26,7 @@ public class DinoController extends Controller<Game> {
                 jump(getModel().isBootsActivated());
             }
         } if(action == GUI.ACTION.DOWN) {
-            SoundEffect.getInstance().playCrouchSound();
+            SoundManager.getInstance().playCrouchSound();
             getModel().setDino(new CrouchDino(getModel().getDino().getPosition()));
             getModel().getDino().setSpeed(10);
         }
@@ -52,7 +51,7 @@ public class DinoController extends Controller<Game> {
 
     private void jump(boolean hasBoots) {
         if(getModel().getDino().getPosition().getY() > Ground.HEIGHT - getModel().getDino().getHeight()) {
-            SoundEffect.getInstance().playJumpSound();
+            SoundManager.getInstance().playJumpSound();
             if (hasBoots)
                 getModel().getDino().setSpeed(-13);
 

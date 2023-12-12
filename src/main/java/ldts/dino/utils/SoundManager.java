@@ -5,8 +5,9 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 import java.io.File;
-public class SoundEffect {
-    private static SoundEffect instance;
+public class SoundManager {
+    private static SoundManager instance;
+    private final Clip gameMusic;
     private final Clip bombSound;
     private final Clip crouchSound;
     private final Clip gameOverSound;
@@ -15,22 +16,23 @@ public class SoundEffect {
     private final Clip pickSound;
     private float musicVolume = 1.0F;
     private final float fxVolume = 1.0F;
-    public SoundEffect() {
-        this.bombSound = loadMusic("/src/main/resources/sound-effects/bomb.wav");
-        this.crouchSound = loadMusic("/src/main/resources/sound-effects/crouch.wav");
+    public SoundManager() {
+        this.gameMusic = loadMusic("/src/main/resources/sounds/background.wav");
+        this.bombSound = loadMusic("/src/main/resources/sounds/bomb.wav");
+        this.crouchSound = loadMusic("/src/main/resources/sounds/crouch.wav");
 
-        this.gameOverSound = loadMusic("/src/main/resources/sound-effects/game_over.wav");
-        this.jumpSound = loadMusic("/src/main/resources/sound-effects/jump.wav");
+        this.gameOverSound = loadMusic("/src/main/resources/sounds/game_over.wav");
+        this.jumpSound = loadMusic("/src/main/resources/sounds/jump.wav");
 
-        this.menuSelectionSound = loadMusic("/src/main/resources/sound-effects/menu_selection.wav");
-        this.pickSound = loadMusic("/src/main/resources/sound-effects/pick.wav");
+        this.menuSelectionSound = loadMusic("/src/main/resources/sounds/menu_selection.wav");
+        this.pickSound = loadMusic("/src/main/resources/sounds/pick.wav");
 
-        //setMusicVolume(0.7F);
+        setMusicVolume(0.9F);
         setFxVolume();
     }
-    public static SoundEffect getInstance() {
+    public static SoundManager getInstance() {
         if (instance == null) {
-            instance = new SoundEffect();
+            instance = new SoundManager();
         }
         return instance;
     }
@@ -49,6 +51,11 @@ public class SoundEffect {
             System.out.println("Error loading music file: " + filePath);
         }
         return null;
+    }
+    public void startGameMusic() {
+        gameMusic.setMicrosecondPosition(0);
+        gameMusic.start();
+        gameMusic.loop(Clip.LOOP_CONTINUOUSLY);
     }
     public void playBombSound() {
         bombSound.setMicrosecondPosition(0);
@@ -83,7 +90,7 @@ public class SoundEffect {
         pickSound.loop(0);
     }
 
-/*
+
     public void setMusicVolume(float volume) {
         if (volume > 1.0F)
             volume = 1.0F;
@@ -92,7 +99,6 @@ public class SoundEffect {
         musicVolume  = volume;
         setClipVolume(gameMusic, musicVolume);
     }
-*/
     public float getMusicVolume() {
         return this.musicVolume;
     }
