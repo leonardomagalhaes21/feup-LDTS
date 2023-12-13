@@ -32,15 +32,8 @@ public class GameController extends Controller<Game> {
                 if (getModel().getBombs() != 0) SoundManager.getInstance().playBombSound();
                 if (getModel().getBombs() != 0 && !getModel().getObstacles().isEmpty()) {
                     getModel().removeBomb();
-
-                    if (getModel().getDino().getPosition().getX() > getModel().getObstacles().get(0).getPosition().getX()) {
-                        getModel().setExplosion(getModel().getObstacles().get(1).getPosition());
-                        getModel().getObstacles().remove(1);
-                    }
-                    else {
-                        getModel().setExplosion(getModel().getObstacles().get(0).getPosition());
-                        getModel().getObstacles().remove(0);
-                    }
+                    getModel().setExplosion(getModel().getObstacles().get(0).getPosition());
+                    getModel().getObstacles().remove(0);
                 }
             break;
         }
