@@ -23,7 +23,7 @@ public class SpriteBuilder {
         Font font;
 
         try {
-            URL resource = SpriteBuilder.class.getClassLoader().getResource("fonts/square.ttf");
+            URL resource = SpriteBuilder.class.getClassLoader().getResource("fonts/OCR A Std Regular.ttf");
             File file = new File(resource.toURI());
             font = Font.createFont(Font.TRUETYPE_FONT, file);
         } catch (NullPointerException | IOException | URISyntaxException | FontFormatException e) {

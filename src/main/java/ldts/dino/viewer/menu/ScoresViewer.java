@@ -14,6 +14,6 @@ public class ScoresViewer extends MenuViewer<ScoresMenu> {
     @Override
     protected void drawEntries(GUI gui, Integer entriesX, Integer entriesY) {
         for (int i = 0; i < getModel().getNumberEntries(); i++)
-            drawText(gui, new Position(entriesX + 1, entriesY + i * 15), getModel().getEntry(i), Colors.WHITE.getHex());
+            drawText(gui, new Position(entriesX + 10, entriesY + i * 15), getModel().getEntry(i), Colors.WHITE.getHex());
     }
 }
