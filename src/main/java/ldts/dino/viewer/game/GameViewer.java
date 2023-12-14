@@ -63,7 +63,7 @@ public class GameViewer extends Viewer<Game> {
     }
 
     private void drawBombCounter(GUI gui) {
-        gui.drawText(new Position(LanternaGUI.WIDTH - 40, 1),  getModel().getBombs() + "/" + Game.BOMBS_LIMIT,10, Colors.WHITE.getHex());
+        gui.drawText(new Position(LanternaGUI.WIDTH - 35, 1),  getModel().getBombs() + "/" + Game.BOMBS_LIMIT,10, Colors.WHITE.getHex());
         gui.drawImageFromFile(new Position(getModel().getGround().getWidth()-10, 1), "bomb");
     }
 
