@@ -30,4 +30,7 @@ public class Building extends Obstacle {
             return build(position, SMALL_BUILDING_HEIGHT);
         }
     }
+    @Override
+    public void move() {
+    }
 }

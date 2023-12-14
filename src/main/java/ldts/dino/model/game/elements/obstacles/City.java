@@ -53,9 +53,6 @@ public class City extends Obstacle {
         return buildings;
     }
 
-    public Position getBuildingAbsolutePosition(Building building) {
-        return new Position(building.getPosition().getX() + this.getPosition().getX(), building.getPosition().getY());
-    }
     @Override
     public boolean isColliding(Element element) {
         Position cityPos = this.getPosition();
@@ -69,5 +66,10 @@ public class City extends Obstacle {
             }
         }
         return false;
+    }
+
+    @Override
+    public void move() {
+        this.getPosition().setX(this.getPosition().getX() - getSpeed());
     }
 }
