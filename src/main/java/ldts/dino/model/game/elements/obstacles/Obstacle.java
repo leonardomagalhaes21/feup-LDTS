@@ -13,9 +13,7 @@ public abstract class Obstacle extends Element {
         return speed;
     }
 
-    public void move() {
-        this.getPosition().setX(this.getPosition().getX() - getSpeed());
-    }
+    public abstract void move();
 
     public static void incrementSpeed() {
         speed ++;
