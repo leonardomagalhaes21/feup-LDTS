@@ -1,4 +1,4 @@
-package viewer
+package viewer.menu
 
 import ldts.dino.gui.GUI
 import ldts.dino.model.menu.MainMenu
