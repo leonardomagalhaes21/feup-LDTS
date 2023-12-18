@@ -34,7 +34,7 @@ public class LanternaGUITest {
         String color = Colors.WHITE.getHex();
         String backgroundColor = Colors.BLACK.getHex();
 
-        gui.drawText(position, text, color, backgroundColor);
+        gui.drawText(position, text, 40, backgroundColor);
 
         Mockito.verify(tg, Mockito.times(1)).setForegroundColor(new TextColor.RGB(232,232,232));
         Mockito.verify(tg, Mockito.times(1)).setBackgroundColor(new TextColor.RGB(0, 0, 0));
