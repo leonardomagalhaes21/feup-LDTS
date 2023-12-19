@@ -18,7 +18,6 @@ public class Application {
         this.gui = new LanternaGUI();
         this.state = new MainMenuState(new MainMenu());
         SoundManager.getInstance().startGameMusic();
-        //TODO
     }
 
     public static void main(String[] args) throws IOException, InterruptedException, URISyntaxException, FontFormatException {
@@ -43,5 +42,8 @@ public class Application {
             if (sleepTime > 0) Thread.sleep(sleepTime);
         }
         gui.close();
+    }
+    public void exit() {
+        this.state = null;
     }
 }

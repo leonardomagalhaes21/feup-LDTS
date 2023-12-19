@@ -10,13 +10,13 @@ import java.util.Random;
 public class Plane extends Obstacle{
     public Position position;
     public static final int WIDTH = 25;
-    public static final int PLANE_HEIGHT = 10;
+    public static final int HEIGHT = 10;
     private final Random random;
 
     public Plane() {
-        super(new Position(LanternaGUI.WIDTH, 50), WIDTH, PLANE_HEIGHT);
+        super(new Position(LanternaGUI.WIDTH, 50), WIDTH, HEIGHT);
         this.random = new Random();
-        int y = random.nextInt(50, Ground.HEIGHT-PLANE_HEIGHT);
+        int y = random.nextInt(50, Ground.HEIGHT-HEIGHT);
         this.getPosition().setY(y);
     }
 

@@ -17,7 +17,7 @@ public class Game {
     private final List<Obstacle> obstaclesList;
     private final List<Collectable> collectablesList;
     private int bombs;
-    public float score = 0;
+    private float score = 0;
     private int clock = 0;
     private boolean shieldActivated = false;
     private int shieldClock = 0;
