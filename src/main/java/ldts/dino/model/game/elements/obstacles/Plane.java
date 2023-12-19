@@ -19,4 +19,9 @@ public class Plane extends Obstacle{
         int y = random.nextInt(50, Ground.HEIGHT-HEIGHT);
         this.getPosition().setY(y);
     }
+
+    @Override
+    public void move() {
+        this.getPosition().setX(this.getPosition().getX() - getSpeed());
+    }
 }
