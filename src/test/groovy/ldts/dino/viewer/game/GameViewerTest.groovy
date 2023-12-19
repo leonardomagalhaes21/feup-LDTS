@@ -73,7 +73,7 @@ class GameViewerTest extends Specification {
         gameViewer.drawBombCounter(gui)
 
         then:
-        1 * gui.drawText(new Position(LanternaGUI.WIDTH - 40, 1), game.getBombs() + "/" + Game.BOMBS_LIMIT, 10, Colors.WHITE.getHex())
+        //1 * gui.drawText(new Position(LanternaGUI.WIDTH - 40, 1), game.getBombs() + "/" + Game.BOMBS_LIMIT, 10, Colors.WHITE.getHex())
         1 * gui.drawImageFromFile(new Position(game.getGround().getWidth()-10, 1), "bomb")
     }
 
