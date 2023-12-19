@@ -18,7 +18,7 @@ public class MainMenuController extends MenuController<MainMenu> {
         if(getModel().isSelectedStart()) application.setState(new GameState(new Game()));
         if(getModel().isSelectedInstructions()) application.setState(new InstructionsState(new InstructionsMenu()));
         if(getModel().isSelectedLeaderboard()) application.setState(new ScoresState(new ScoresMenu()));
-        if(getModel().isSelectedExit()) application.setState(null);
+        if(getModel().isSelectedExit()) application.exit();
     }
 
     @Override

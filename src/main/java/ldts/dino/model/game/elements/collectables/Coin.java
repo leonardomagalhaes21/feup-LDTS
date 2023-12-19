@@ -11,6 +11,7 @@ public class Coin extends Collectable {
     public Position position;
     public static final int WIDTH = 8;
     public static final int HEIGHT = 8;
+    public static final int VALUE = 100;
     private final Random random;
 
     public Coin() {
@@ -22,6 +23,6 @@ public class Coin extends Collectable {
 
     @Override
     public void consume(Game game) {
-        game.setScore(game.getScore() + 100);
+        game.setScore(game.getScore() + VALUE);
     }
 }
