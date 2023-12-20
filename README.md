@@ -124,10 +124,10 @@ It'll help manage different game states and simplify state-specific behavior.
 
 ![state.jpg](src%2Fmain%2Fresources%2Fuml%2Fstate.jpg)
 
-- Application - The application will have a private state attribute. 
+- Application - The application will have a private state attribute.
 - State - It's the interface for the concrete states.
 - GameState, MainMenuState, InstructionsState, ScoresState and GameOverState -
-Concrete states.
+  Concrete states.
 
 These classes could be found in the following files:
 
@@ -158,8 +158,8 @@ type.
 
 **The Pattern**
 
-To solve this we use the **Command** Pattern which grants 
-each collectable its own execute command when they are collected 
+To solve this we use the **Command** Pattern which grants
+each collectable its own execute command when they are collected
 and consumed by the player.
 
 **Implementation**
@@ -229,7 +229,7 @@ These classes could be found in the following files:
 
 Using the Abstract Factory Method Pattern allows us to create different types of elements
 without having to specify their concrete classes, which makes it easier to add new types of elements
-in the future. 
+in the future.
 
 #### MANAGING SOUNDS
 
@@ -263,7 +263,7 @@ These classes could be found in the following files:
 
 **Consequences**
 
-Now the code is isolated from the music and sound effects, 
+Now the code is isolated from the music and sound effects,
 we can access them from anywhere in the code, and, because
 there is only a single object of the class, there is no
 problems of two overlapping sound effects, for example.
@@ -280,7 +280,7 @@ user interaction with the game.
 
 **The Pattern**
 
-The **Strategy** Pattern solves this problem by defining two algorithms, 
+The **Strategy** Pattern solves this problem by defining two algorithms,
 Normal Dino and Crouched Dino, that can be used interchangeably.
 The client can choose which algorithm to use at runtime.
 
