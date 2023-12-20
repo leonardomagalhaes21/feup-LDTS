@@ -34,7 +34,7 @@ class ElementsFactoryTest extends Specification {
         game.getCollectables().size() == initialCollectablesCount + 1
     }
 
-    /*def "test step"() {
+    def "test step"() {
         given:
         def obstaclesSize = game.getObstacles().size()
         def collectablesSize = game.getCollectables().size()
@@ -53,5 +53,5 @@ class ElementsFactoryTest extends Specification {
 
         then:
         game.getCollectables().size() == collectablesSize + 1
-    }*/
+    }
 }

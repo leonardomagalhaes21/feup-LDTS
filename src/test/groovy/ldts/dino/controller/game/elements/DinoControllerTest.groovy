@@ -18,7 +18,7 @@ class DinoControllerTest extends Specification {
         application = Mock(Application)
     }
 
-    /*def "test step no action"() {
+    def "test step no action"() {
         given:
         game.setDino(new NormalDino())
         def y = game.getDino().getPosition().getY()
@@ -51,5 +51,5 @@ class DinoControllerTest extends Specification {
 
         then:
         game.getDino() instanceof CrouchDino
-    }*/
+    }
 }
