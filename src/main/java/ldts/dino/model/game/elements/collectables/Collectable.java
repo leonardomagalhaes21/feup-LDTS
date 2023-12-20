@@ -22,6 +22,6 @@ public abstract class Collectable extends Element {
     public abstract void consume(Game game);
 
     public static void incrementSpeed() {
-        speed ++;
+        speed++;
     }
 }

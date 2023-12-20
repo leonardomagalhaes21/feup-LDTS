@@ -71,4 +71,6 @@ public abstract class Element {
     public int getSpeed() {
         return speed;
     }
+
+    public abstract void move();
 }
