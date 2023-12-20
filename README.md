@@ -1,6 +1,6 @@
 ## LDTS_0603 - Dino
 
-This game is strongly inspired on the hidden Chrome browser game when there is no internet. The objective of the game is to control Dino avoiding colliding with obstacles (buildings,  cities and planes) coming from the right.
+This game is strongly inspired on the hidden Chrome browser game when there is no internet. The objective of the game is to control Dino avoiding colliding with obstacles (cities and planes) coming from the right.
 There are collectables that, if you catch them, can help you to score more points. The points are counted by the distance you travelled since the start of the game.
 This project was developed by:
 - **Guilherme Silveira Rego** (up202207041)
@@ -12,48 +12,79 @@ Software Design and Testing Laboratory
 
 ### IMPLEMENTED FEATURES
 
-- **Menu** - Part of the menu is already implemented.
+- **Menu** - The game has a menu that can be accessed at the beginning of the game as soon as we run it, and when we lose. The menu has four options:
+  - **Start** - Starts a new game.
+  - **Instructions** - Displays the instructions of the game.
+  - **Leaderboard** - Displays the three highest scores.
+  - **Exit** - Exits the game.
+- **Playable character** - Dino jumps when the arrow up  key or the space bar is pressed, crouches when the arrow down key is pressed, and uses a bomb if he has it his inventory pressing the arrow left key. If the arrow key or the space bar are pressed when Dino is crouched he will return to his "normal mode".
+- **Random obstacles** - There is two possible obstacles that can be randomly generated: a plane, or a city, which is a group of buildings that are either small or large, and could appear as a group of three, two, or just one building.
+- **Collectables** -The game has collectable objects that can be consumed by the player:
+  - **Bomb** - If the player catches a bomb, it will be stored in his inventory (which is represented in the top right corner, with a counter of the number of bombs the player has) to use whenever he wants to explode the next obstacle. There is a maximum capacity of the inventory of 5 bombs.
+  - **Shield** - Dino is able to wear a shield that protects him for a short time (that is represented ion the top left corner). If he collides with an obstacle when he's wearing the shield, the player will not lose.
+  - **Boots** - The game character has a higher jump during a certain period of time (which is represented ion the top left corner).
+  - **Coin** - The coin will add 100 points to the player's score.
+- **Collision detector** - The game has the ability to detect when Dino collides with the obstacles to make the player lose or when Dino catches a collectable to consume it.
+- **Difficulty controller** - To make the game more dynamic, the more points you have, the faster it will become, making it increasingly difficult.
+- **Music and sound effects** - There is background music and many sound effects throughout the game for each player's action.
+- **Game Over** - The game displays a game over screen when the player collides with an obstacle. The player will have two options:
+  - **Start** - Starts a new game.
+  - **Menu** - The player goes to the main menu.
 
 ### PLANNED FEATURES
 
-- **Jumping** - Dino will jump when the arrow up  key is pressed.
-- **Squatting** - The game character will squat when the arrow down key is pressed.
-- **Menu** - The game has a menu that can be accessed at the beginning of the game as soon as we run it, and when we lose. The menu has four options:
-    - **Start** - Starts a new game.
-    - **Instructions** - Displays the instructions of the game.
-    - **Leaderboard** - Displays the highest scores.
-    - **Exit** - Exits the game.
-- **Random obstacles** - We want to generate buildings, cities and planes at random (but logical) positions.
-- **Collectables** -The game will have collectable objects that can be collected by the player:
-  - **Bomb** - If the player catches a bomb, it will be stored in his inventory to use whenever he wants. The bomb explodes the nearest obstacle.
-  - **Shield** - Dino will be able to wear a shield that protects him for a short time. If he collides with an obstacle when he's wearing the shield, the player will not lose.
-  - **Boots** - The game character will have a higher jump during a certain period of time.
-  - **Coin** - The coin will increase the player score.
-- **Collision detector** - It is important to make the game detect when Dino collides with the obstacles so that we can know when the player lost or caught a collectable.
-- **Music and sound effects** - Our idea is to implement background music and sound effects for the game.
-- **Game Over** - The game needs to display a game over screen when the player collides with an obstacles. The player will have two options:
-  - **Start** - Starts a new game.
-  - **Menu** - The player goes to the Menu.
-  - **Coin Multiplier** - (OPTIONAL) It's an idea for a future feature that implements the Strategy
-Pattern to create a coin multiplicator depending on how far the player in his run.
+- Every feature has been implemented.
 
 <br/>
 
-![sketch1.png](src%2Fmain%2Fresources%2Fmockups%2Fsketch1.png)
-![sketch2.png](src%2Fmain%2Fresources%2Fmockups%2Fsketch2.png)
+![menu.gif](src%2Fmain%2Fresources%2Fmockups%2Fmenu.gif)
+<br/>
+![game.gif](src%2Fmain%2Fresources%2Fmockups%2Fgame.gif)
+<br/>
+![gameover.gif](src%2Fmain%2Fresources%2Fmockups%2Fgameover.gif)
+
 ### DESIGN
 
-#### LANTERNA LIBRARY SIMPLICATION
+#### CODE'S STRUCTURE
 
 **Problem in Context**
 
-In order to make the game development easier and more scalable you should
-be able to easily change the UI library without changing the rest of the code.
+As the game's complexity grows, the code becomes increasingly intricate, making it harder to comprehend and maintain over time.
+This challenge escalates as new features are added, demanding more effort to manage and update the codebase effectively.
+
+**The Pattern**
+
+The MVC (Model-View-Controller) architecture proves beneficial as it segregates the code into three core components: the model, the view, and the controller.
+The model handles data, the view manages the visual interface, and the controller oversees the game's logic.
+These distinct components operate independently yet collaboratively, synergizing their functionalities to ensure the seamless operation of the game. This segregation enables efficient development, modification, and enhancement of each component without compromising the overall functionality of the game.
+
+**Implementation**
+
+![mvc.jpg](src%2Fmain%2Fresources%2Fuml%2Fmvc.jpg)
+
+These classes could be found in the following files:
+
+- [Model](./src/main/java/ldts/dino/model/game/Game.java)
+- [View](./src/main/java/ldts/dino/viewer/Viewer.java)
+- [Controller](./src/main/java/ldts/dino/controller/Controller.java)
+
+**Consequences**
+
+Implementing MVC simplifies managing the game's complexity by dividing it into distinct parts: model, view, and controller. This division streamlines development, making it easier to update or enhance specific components without affecting the entire game's functionality.
+It promotes a clearer structure and facilitates smoother collaboration between different aspects of the game, easing the management and evolution of the codebase as the game grows.
+
+
+#### LANTERNA LIBRARY SIMPLIFICATION
+
+**Problem in Context**
+
+The GUI librabry (Lanterna) could be confusing and more extensive than we really need.
+We should be able to make this framework easy to handle without affecting the rest of the code.
 
 **The Pattern**
 
 To solve this problem we use the **Facade** Pattern since it provides a
-simplified interface to a library, a framework, or any other complex set of classes.
+simplified interface to the library we are working with and assures that it can be easily changed.
 
 **Implementation**
 
@@ -68,6 +99,12 @@ These classes could be found in the following files:
 - [Application](./src/main/java/ldts/dino/Application.java)
 - [GUI](./src/main/java/ldts/dino/gui/GUI.java)
 - [LanternaGUI](./src/main/java/ldts/dino/gui/LanternaGUI.java)
+
+**Consequences**
+
+By using the Facade Pattern, handling the Lanterna GUI library becomes simpler and more straightforward.
+It reduces confusion and makes it easier for us to work with the library without needing extensive knowledge.
+It makes our system easier to maintain and adapt, allowing us to make updates without causing major issues in the overall structure.
 
 
 #### MANAGING GAME STATE TRANSITIONS
@@ -104,8 +141,10 @@ These classes could be found in the following files:
 
 **Consequences**
 
-This pattern will help making easier the addition of new states to the game
-without having to change the whole code.
+Using the State Pattern simplifies managing different game states.
+It enables smooth transitions between states based on user interactions and streamlines state-specific behaviors.
+This approach ensures clearer code and easier future modifications or additions of new states, making the overall game development process more straightforward.
+
 
 #### DIFFERENT COLLECTABLES MUST HAVE DIFFERENT EFFECTS
 
@@ -120,12 +159,14 @@ type.
 **The Pattern**
 
 To solve this we use the **Command** Pattern which grants 
-each collectable its own execute command when they are collected by
-the player.
+each collectable its own execute command when they are collected 
+and consumed by the player.
 
 **Implementation**
 
 ![command.jpg](src%2Fmain%2Fresources%2Fuml%2Fcommand.jpg)
+
+!!! METER MÉTODO CONSUME NOS COLLECTABLES!!!
 
 - Game - Invoker.
 - Collectable - Command.
@@ -140,7 +181,15 @@ These classes could be found in the following files:
 - [Coin](./src/main/java/ldts/dino/model/game/elements/collectables/Coin.java)
 - [Shield](./src/main/java/ldts/dino/model/game/elements/collectables/Shield.java)
 
-#### RANDOMLY GENERATING ELEMENTS
+**Consequences**
+
+Since each collectible possesses its unique command, applying the Command Pattern
+we can seamlessly introduce new collectibles without requiring modifications in the game's existing code.
+This approach enhances the flexibility and ease of maintenance in the codebase.
+Additionally, this pattern offers the advantage of isolating the
+consumption of code from the rest of the game.
+
+#### RANDOMLY GENERATING DIFFERENT TYPES OF ELEMENTS
 
 **Problem in Context**
 
@@ -150,19 +199,16 @@ should not spawn in the same position.
 
 **The Pattern**
 
-The **Factory Method** Pattern defines an interface for creating an object, but lets subclasses decide which class to instantiate.
-It promotes the creation of objects through a common interface
+The **Abstract Factory Method** Pattern provides an interface for creating families of related
+or dependent objects without specifying their concrete classes, that is exactly what we need to solve this problem
+as we want to create different types of buildings, cities and planes, and different types of collectables.
 
 **Implementation**
 
-![factorymethod.jpg](src%2Fmain%2Fresources%2Fuml%2Ffactorymethod.jpg)
+![abstractfactorymethod.jpg](src%2Fmain%2Fresources%2Fuml%2Fabstractfactorymethod.jpg)
 
-- Creator - Abstract factory defining methods for creating different game elements.
-- ObstacleCreator, CollectableCreator - Concrete creators extending methods to create specific elements
-- Collectable, Obstacle - Elements.
-- Bomb, Boots, Coin, Shield, Building, City, Plane - Concrete elements
-made by the concrete creators.
-- ElementsFactory - Controls the concrete creators.
+!!! MUDAR UML: OBSTACLES SÓ CRIAM CITIES E PLANES !!!
+!!! CRIAR FACTORY METHOD PARA CRIAR BUILDINGS DIFERENTES !!!
 
 These classes could be found in the following files:
 
@@ -181,8 +227,79 @@ These classes could be found in the following files:
 
 **Consequences**
 
-This pattern (with the right logic) will centralize the creation
-of elements in ElementsFactory class, making all the logic of the creation isolated from the rest of the code.
+Using the Abstract Factory Method Pattern allows us to create different types of elements
+without having to specify their concrete classes, which makes it easier to add new types of elements
+in the future. 
+
+#### MANAGING SOUNDS
+
+**Problem in Context**
+
+The music and sound effects are a resource shared among the
+controllers that use them on their own way, so we need to
+manage them by a single class, so that we can access them
+from anywhere in the code.
+
+**The Pattern**
+
+To solve this we use the **Singleton** Pattern,
+that ensures that only one instance of the class is created
+responsible for playing the music and sound effects.
+This object is accessible from everywhere, so that there is
+a single point to access the music and sound effects.
+
+**Implementation**
+
+![singleton.jpg](src%2Fmain%2Fresources%2Fuml%2Fsingleton.jpg)
+
+These classes could be found in the following files:
+
+- [SoundManager](./src/main/java/ldts/dino/utils/SoundManager.java)
+- [DinoController](./src/main/java/ldts/dino/controller/game/elements/DinoController.java)
+- [CollisionController](./src/main/java/ldts/dino/controller/game/CollisionController.java)
+- [GameController](./src/main/java/ldts/dino/controller/game/GameController.java)
+- [MenuController](./src/main/java/ldts/dino/controller/menu/MenuController.java)
+- [Application](./src/main/java/ldts/dino/Application.java)
+
+**Consequences**
+
+Now the code is isolated from the music and sound effects, 
+we can access them from anywhere in the code, and, because
+there is only a single object of the class, there is no
+problems of two overlapping sound effects, for example.
+Changing or adding more music and sound effects turns out to
+be an easy task with the singleton pattern implemented.
+
+#### MANAGING DINO'S FORMS
+
+**Problem in Context**
+
+Dino has two forms, the normal form and the crouched form.
+The game should be able to change Dino's form depending on the
+user interaction with the game.
+
+**The Pattern**
+
+The **Strategy** Pattern solves this problem by defining two algorithms, 
+Normal Dino and Crouched Dino, that can be used interchangeably.
+The client can choose which algorithm to use at runtime.
+
+**Implementation**
+
+![strategy.jpg](src%2Fmain%2Fresources%2Fuml%2Fstrategy.jpg)
+
+These classes could be found in the following files:
+
+- [Dino](./src/main/java/ldts/dino/model/game/elements/dino/Dino.java)
+- [NormalDino](./src/main/java/ldts/dino/model/game/elements/dino/NormalDino.java)
+- [CrouchDino](./src/main/java/ldts/dino/model/game/elements/dino/CrouchDino.java)
+
+**Consequences**
+
+Using the Strategy Pattern simplifies managing Dino's forms,
+it enables smooth transitions between forms based on user interactions.
+This approach ensures clearer code and easier future modifications or additions of new forms,
+making the overall game development process more straightforward.
 
 ------
 

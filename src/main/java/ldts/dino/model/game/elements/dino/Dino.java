@@ -28,4 +28,6 @@ public abstract class Dino extends Element {
         return gravity;
     }
 
+    @Override
+    public void move() {}
 }

@@ -8,4 +8,7 @@ public class Ground extends Element{
     public Ground() {
         super(new Position(0, HEIGHT), LanternaGUI.WIDTH, LanternaGUI.HEIGHT - HEIGHT + 1);
     }
+
+    @Override
+    public void move() {}
 }

@@ -13,8 +13,6 @@ public abstract class Obstacle extends Element {
         return speed;
     }
 
-    public abstract void move();
-
     public static void incrementSpeed() {
         speed ++;
     }
