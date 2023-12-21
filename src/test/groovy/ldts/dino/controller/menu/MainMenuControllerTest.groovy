@@ -4,8 +4,6 @@ import spock.lang.Specification
 import ldts.dino.Application
 import ldts.dino.model.menu.MainMenu
 import ldts.dino.state.GameState
-import ldts.dino.state.InstructionsState
-import ldts.dino.state.ScoresState
 
 class MainMenuControllerTest extends Specification {
     /*
@@ -13,13 +11,11 @@ class MainMenuControllerTest extends Specification {
     Application application
 
     def setup() {
+        controller = new MainMenuController(new MainMenu())
         application = Mock(Application)
     }
 
     def "test entrySelected start"() {
-        given:
-        controller = new MainMenuController(new MainMenu())
-
         when:
         controller.entrySelected(application)
 
@@ -28,9 +24,6 @@ class MainMenuControllerTest extends Specification {
     }
 
     def "test backSelected"() {
-        given:
-        controller = new MainMenuController(new MainMenu())
-
         when:
         controller.backSelected(application)
 

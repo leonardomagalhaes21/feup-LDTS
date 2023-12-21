@@ -1,13 +1,8 @@
-import com.googlecode.lanterna.TextColor
+package ldts.dino.gui
+
 import com.googlecode.lanterna.graphics.TextGraphics
 import com.googlecode.lanterna.screen.Screen
-import ldts.dino.gui.LanternaGUI
-import ldts.dino.gui.GUI
-import ldts.dino.utils.Colors
-import ldts.dino.utils.Position
 import spock.lang.Specification
-import org.mockito.Mockito
-
 
 class LanternaGUITest extends Specification {
 
@@ -16,9 +11,9 @@ class LanternaGUITest extends Specification {
     TextGraphics textGraphics
 
     def setup() {
-        screen = Mockito.mock(Screen.class)
-        textGraphics = Mockito.mock(TextGraphics.class)
-        Mockito.when(screen.newTextGraphics()).thenReturn(textGraphics)
+        screen = Mock(Screen)
+        textGraphics = Mock(TextGraphics)
+        screen.newTextGraphics() >> textGraphics
         gui = new LanternaGUI(screen)
     }
 
@@ -37,7 +32,7 @@ class LanternaGUITest extends Specification {
         gui.clear()
 
         then:
-        Mockito.verify(screen).clear()
+        1 * screen.clear()
     }
 
     def "test refresh"() {
@@ -46,7 +41,7 @@ class LanternaGUITest extends Specification {
         gui.refresh()
 
         then:
-        Mockito.verify(screen).refresh()
+        1 * screen.refresh()
     }
 
     def "test close"() {
@@ -55,6 +50,6 @@ class LanternaGUITest extends Specification {
         gui.close()
 
         then:
-        Mockito.verify(screen).close()
+        1 * screen.close()
     }
 }
