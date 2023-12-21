@@ -14,11 +14,10 @@ class GameOverControllerTest extends Specification {
 
     def setup() {
         application = Mock(Application)
+        controller = new GameOverController(new GameOverMenu())
     }
 
     def "test entrySelected restart"() {
-        given:
-        controller = new GameOverController(new GameOverMenu())
 
         when:
         controller.entrySelected(application)
@@ -27,19 +26,8 @@ class GameOverControllerTest extends Specification {
         1 * application.setState(_ as GameState)
     }
 
-    /*def "test entrySelected menu"() {
-        given:
-        controller.model.isSelectedMenu() >> true
-        controller.model.isSelectedRestart() >> false
-
-        when:
-        controller.entrySelected(application)
-
-        then:
-        1 * application.setState(_ as MainMenuState)
-    }
-
     def "test backSelected"() {
+
         when:
         controller.backSelected(application)
 
