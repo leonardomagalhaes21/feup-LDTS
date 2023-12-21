@@ -28,6 +28,9 @@ public class Application {
         this.state = state;
     }
 
+    public State getState() {
+        return this.state;
+    }
     private void start() throws IOException, InterruptedException {
         int FPS = 30;
         int frameTime = 1000 / FPS;

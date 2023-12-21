@@ -19,7 +19,7 @@ class MotionControllerTest extends Specification {
         application = Mock(Application)
     }
 
-    /*def "test moveObstacles"() {
+    def "test moveObstacles"() {
         given:
         game.addObstacle(new Plane())
         def x = game.getObstacles().get(0).getPosition().getX()
@@ -57,5 +57,5 @@ class MotionControllerTest extends Specification {
         then:
         game.getObstacles().get(0).getSpeed() > obstacleSpeed
         game.getCollectables().get(0).getSpeed() > collectableSpeed
-    }*/
+    }
 }
