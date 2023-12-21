@@ -5,7 +5,7 @@ import ldts.dino.model.game.elements.collectables.*;
 
 import java.util.Random;
 
-public class CollectableCreator extends Creator {
+public class CollectableCreator extends Creator<Collectable> {
     private final Random random;
 
     public CollectableCreator() {

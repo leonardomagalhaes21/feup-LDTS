@@ -11,6 +11,7 @@ public class CrouchDino extends Dino {
         super(position, WIDTH, HEIGHT);
     }
 
+    @Override
     public void changeDinoForm() {
         if(crouchDinoForm == 1) {
             this.crouchDinoForm = 2;
