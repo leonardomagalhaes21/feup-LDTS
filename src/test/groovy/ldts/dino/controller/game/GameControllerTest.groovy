@@ -24,17 +24,6 @@ class GameControllerTest extends Specification {
         1 * application.setState(null)
     }
 
-    /*def "test step bomb"() {
-        given:
-        controller.model.addBomb()
-        controller.model.addObstacle(Mock(Bomb))
-        when:
-        controller.step(application, GUI.ACTION.BOMB, 0)
-
-        then:
-        controller.model.getBombs() == 0
-    }*/
-
     def "test step score"() {
         given:
         def initialScore = controller.model.getScore()

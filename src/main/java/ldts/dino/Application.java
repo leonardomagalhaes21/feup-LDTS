@@ -1,6 +1,6 @@
 package ldts.dino;
 
-import git branldts.dino.gui.LanternaGUI;
+import ldts.dino.gui.LanternaGUI;
 import ldts.dino.model.menu.MainMenu;
 import ldts.dino.state.MainMenuState;
 import ldts.dino.state.State;
@@ -28,6 +28,9 @@ public class Application {
         this.state = state;
     }
 
+    public State getState() {
+        return this.state;
+    }
     private void start() throws IOException, InterruptedException {
         int FPS = 30;
         int frameTime = 1000 / FPS;
