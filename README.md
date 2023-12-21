@@ -166,8 +166,6 @@ and consumed by the player.
 
 ![command.jpg](src%2Fmain%2Fresources%2Fuml%2Fcommand.jpg)
 
-!!! METER MÉTODO CONSUME NOS COLLECTABLES!!!
-
 - Game - Invoker.
 - Collectable - Command.
 - Bomb, Boots, Coin, Shield - Concrete commands.
@@ -189,6 +187,7 @@ This approach enhances the flexibility and ease of maintenance in the codebase.
 Additionally, this pattern offers the advantage of isolating the
 consumption of code from the rest of the game.
 
+
 #### RANDOMLY GENERATING DIFFERENT TYPES OF ELEMENTS
 
 **Problem in Context**
@@ -205,10 +204,7 @@ as we want to create different types of buildings, cities and planes, and differ
 
 **Implementation**
 
-![abstractfactorymethod.jpg](src%2Fmain%2Fresources%2Fuml%2Fabstractfactorymethod.jpg)
-
-!!! MUDAR UML: OBSTACLES SÓ CRIAM CITIES E PLANES !!!
-!!! CRIAR FACTORY METHOD PARA CRIAR BUILDINGS DIFERENTES !!!
+![abstractfactory.jpg](src%2Fmain%2Fresources%2Fuml%2Fabstractfactory.jpg)
 
 These classes could be found in the following files:
 
@@ -221,7 +217,6 @@ These classes could be found in the following files:
 - [Boots](./src/main/java/ldts/dino/model/game/elements/collectables/Boots.java)
 - [Coin](./src/main/java/ldts/dino/model/game/elements/collectables/Coin.java)
 - [Shield](./src/main/java/ldts/dino/model/game/elements/collectables/Shield.java)
-- [Building](./src/main/java/ldts/dino/model/game/elements/obstacles/Building.java)
 - [City](./src/main/java/ldts/dino/model/game/elements/obstacles/City.java)
 - [Plane](./src/main/java/ldts/dino/model/game/elements/obstacles/Plane.java)
 
@@ -230,6 +225,36 @@ These classes could be found in the following files:
 Using the Abstract Factory Method Pattern allows us to create different types of elements
 without having to specify their concrete classes, which makes it easier to add new types of elements
 in the future.
+
+#### CREATING DIFFERENT TYPES OF BUILDINGS (???)
+
+**Problem in Context**
+
+In the game there are two types of buildings, small and large, and they
+can appear as a group of three, two, or just one building. We need to
+create these buildings in a way that they can be randomly generated
+during gameplay.
+
+**The Pattern**
+
+The **Factory Method** Pattern defines an interface for creating an object,
+but lets subclasses decide which class to instantiate. It solves the problem
+of creating objects without specifying the exact class of object that will be created.
+
+**Implementation**
+
+!!! METER UML DO FACTORY METHOD !!!
+
+These classes could be found in the following files:
+
+- [Building](./src/main/java/ldts/dino/model/game/elements/obstacles/Building.java)
+
+**Consequences**
+
+Using the Factory Method Pattern allows us to create different types of buildings
+without having to specify their concrete classes, which makes it easier to add new types of buildings
+in the future. This approach enhances the flexibility and ease of maintenance in the codebase.
+
 
 #### MANAGING SOUNDS
 
@@ -305,7 +330,7 @@ making the overall game development process more straightforward.
 
 ### TESTING
 
-- Only menu and utils testing. Others still not implemented.
+![coverage.png](src%2Fmain%2Fresources%2Ftests%2Fcoverage.png)
 
 ### SELF-EVALUATION
 
@@ -314,5 +339,5 @@ making the overall game development process more straightforward.
 - Leonardo Magalhães: 33.3%
 
 ### UML DIAGRAM
-https://www.planttext.com/
+
 ![uml.jpg](src%2Fmain%2Fresources%2Fuml%2Fuml.jpg)

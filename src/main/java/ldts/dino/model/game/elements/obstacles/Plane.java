@@ -7,7 +7,7 @@ import ldts.dino.utils.Position;
 import java.util.List;
 import java.util.Random;
 
-public class Plane extends Obstacle{
+public class Plane extends Obstacle {
     public Position position;
     public static final int WIDTH = 25;
     public static final int HEIGHT = 10;

@@ -1,6 +1,5 @@
 package ldts.dino.model.game.elements.dino;
 
-import ldts.dino.model.game.elements.Element;
 import ldts.dino.model.game.elements.Ground;
 import ldts.dino.utils.Position;
 
@@ -14,6 +13,7 @@ public class NormalDino extends Dino {
         super(new Position(X, Ground.HEIGHT - HEIGHT), WIDTH, HEIGHT);
     }
 
+    @Override
     public void changeDinoForm() {
         if(dinoNormalForm == 1) {
             dinoNormalForm = 2;
@@ -25,6 +25,4 @@ public class NormalDino extends Dino {
     public int getDinoForm() {
         return dinoNormalForm;
     }
-
-
 }
