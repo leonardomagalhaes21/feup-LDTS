@@ -1,6 +1,6 @@
 package ldts.dino;
 
-import ldts.dino.gui.LanternaGUI;
+import git branldts.dino.gui.LanternaGUI;
 import ldts.dino.model.menu.MainMenu;
 import ldts.dino.state.MainMenuState;
 import ldts.dino.state.State;

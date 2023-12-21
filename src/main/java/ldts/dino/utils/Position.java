@@ -1,7 +1,6 @@
 package ldts.dino.utils;
 
 public class Position {
-
     private int x, y;
 
     public Position(int x, int y) {

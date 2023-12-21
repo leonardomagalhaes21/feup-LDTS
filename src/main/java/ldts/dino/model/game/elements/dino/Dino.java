@@ -3,10 +3,6 @@ package ldts.dino.model.game.elements.dino;
 import ldts.dino.model.game.elements.Element;
 import ldts.dino.utils.Position;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Queue;
-
 public abstract class Dino extends Element {
     public int speed = 1;
     public final int MAX_SPEED = 10;

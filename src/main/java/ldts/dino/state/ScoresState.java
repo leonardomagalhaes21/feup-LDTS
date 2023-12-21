@@ -6,7 +6,7 @@ import ldts.dino.model.menu.ScoresMenu;
 import ldts.dino.viewer.Viewer;
 import ldts.dino.viewer.menu.ScoresViewer;
 
-public class ScoresState extends State<ScoresMenu>{
+public class ScoresState extends State<ScoresMenu> {
 
     public ScoresState(ScoresMenu model) {
         super(model);
