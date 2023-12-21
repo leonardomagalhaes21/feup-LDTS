@@ -31,6 +31,7 @@ public abstract class MenuController<T extends Menu> extends Controller<T> imple
                 backSelected(application);
                 break;
             case QUIT:
+                SoundManager.getInstance().stopGameMusic();
                 application.setState(null);
                 break;
         }
