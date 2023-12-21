@@ -3,6 +3,7 @@ package ldts.dino.model.menu;
 import java.util.Arrays;
 
 public class MainMenu extends Menu {
+
     public MainMenu() {
         this.entries = Arrays.asList("Start", "Instructions", "Top Score", "Exit");
     }
@@ -17,5 +18,4 @@ public class MainMenu extends Menu {
     public boolean isSelectedExit() {
         return isSelected(3);
     }
-
 }

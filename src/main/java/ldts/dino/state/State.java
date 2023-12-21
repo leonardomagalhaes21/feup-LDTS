@@ -31,6 +31,4 @@ public abstract class State<T> {
         controller.step(application, action, time);
         viewer.draw(gui);
     }
-
-    // TO ADD: controller, viewer.
 }

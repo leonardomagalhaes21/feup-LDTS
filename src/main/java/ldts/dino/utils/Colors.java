@@ -5,8 +5,7 @@ public enum Colors {
     BLUE("#8ECAE6"),
     GREEN("#499a3c"),
     GROUND("#474c55"),
-    WHITE("#f2f2f2"),
-    BLACK("#000001");
+    WHITE("#f2f2f2");
 
     private final String hex;
 

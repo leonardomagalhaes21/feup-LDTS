@@ -3,7 +3,6 @@ package ldts.dino.model.game.elements.collectables;
 import ldts.dino.gui.LanternaGUI;
 import ldts.dino.model.game.Game;
 import ldts.dino.model.game.elements.Ground;
-import ldts.dino.model.game.elements.dino.Dino;
 import ldts.dino.utils.Position;
 
 import java.util.Random;

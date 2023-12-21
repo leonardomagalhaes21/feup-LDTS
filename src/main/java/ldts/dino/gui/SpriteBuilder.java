@@ -46,7 +46,6 @@ public class SpriteBuilder {
         cache.put(name, image);
     }
 
-
     public BufferedImage loadImage(String filename) {
         if(isInCache(filename)) return getFromCache(filename);
 
@@ -82,5 +81,4 @@ public class SpriteBuilder {
         textCache.put(textDetails, image);
         return image;
     }
-
 }

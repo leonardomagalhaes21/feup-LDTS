@@ -14,6 +14,6 @@ public abstract class Obstacle extends Element {
     }
 
     public static void incrementSpeed() {
-        speed ++;
+        speed++;
     }
 }

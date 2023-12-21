@@ -35,10 +35,10 @@ public class DinoController extends Controller<Game> {
     private void dinoForm() {
         if(getModel().getClock() % 5 == 0) {
             if(getModel().getDino() instanceof NormalDino){
-                ((NormalDino) getModel().getDino()).changeDinoForm();
+                (getModel().getDino()).changeDinoForm();
             }
             else if(getModel().getDino() instanceof CrouchDino){
-                ((CrouchDino) getModel().getDino()).changeDinoForm();
+                (getModel().getDino()).changeDinoForm();
             }
         }
     }

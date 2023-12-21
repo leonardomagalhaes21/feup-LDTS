@@ -1,6 +1,5 @@
 package ldts.dino.model.game;
 
-import ldts.dino.model.game.elements.Element;
 import ldts.dino.model.game.elements.dino.Dino;
 import ldts.dino.model.game.elements.dino.NormalDino;
 import ldts.dino.model.game.elements.Ground;
@@ -27,7 +26,6 @@ public class Game {
     public static final int BOMBS_LIMIT = 5;
     public static final int CLOCK_LIMIT = 100;
     public static final int EXPLOSION_CLOCK = 5;
-
     private Position explosion = null;
 
     public Game() {
@@ -93,7 +91,6 @@ public class Game {
     public void removeBomb() {
         bombs--;
     }
-
 
     public void updateClock() {
         clock++;

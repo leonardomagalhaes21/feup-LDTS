@@ -35,7 +35,7 @@ public class GameController extends Controller<Game> {
                     getModel().setExplosion(getModel().getObstacles().get(0).getPosition());
                     getModel().getObstacles().remove(0);
                 }
-            break;
+                break;
         }
         getModel().setScore((float) (getModel().getScore() + 0.5));
         elementsFactory.step();

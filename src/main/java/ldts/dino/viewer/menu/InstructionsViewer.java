@@ -2,7 +2,6 @@ package ldts.dino.viewer.menu;
 
 import ldts.dino.gui.GUI;
 import ldts.dino.model.menu.InstructionsMenu;
-import ldts.dino.utils.Colors;
 import ldts.dino.utils.Position;
 
 public class InstructionsViewer extends MenuViewer<InstructionsMenu> {

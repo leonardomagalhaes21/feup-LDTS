@@ -5,6 +5,7 @@ import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 import java.io.File;
+
 public class SoundManager {
     private static SoundManager instance;
     private final Clip gameMusic;
@@ -16,6 +17,7 @@ public class SoundManager {
     private final Clip pickSound;
     private float musicVolume = 1.0F;
     private final float fxVolume = 1.0F;
+
     public SoundManager() {
         this.gameMusic = loadMusic("/src/main/resources/sounds/background.wav");
         this.bombSound = loadMusic("/src/main/resources/sounds/bomb.wav");
@@ -73,6 +75,7 @@ public class SoundManager {
         gameOverSound.start();
         gameOverSound.loop(0);
     }
+
     public void playJumpSound() {
         jumpSound.setMicrosecondPosition(0);
         jumpSound.start();
@@ -90,7 +93,6 @@ public class SoundManager {
         pickSound.loop(0);
     }
 
-
     public void setMusicVolume(float volume) {
         if (volume > 1.0F)
             volume = 1.0F;
@@ -102,7 +104,7 @@ public class SoundManager {
     public float getMusicVolume() {
         return this.musicVolume;
     }
-    public float getSFXVolume(){ return this.fxVolume;}
+
     public void setFxVolume() {
         setClipVolume(bombSound, 0.8F);
         setClipVolume(crouchSound,0.8F);
@@ -111,6 +113,7 @@ public class SoundManager {
         setClipVolume(menuSelectionSound,fxVolume);
         setClipVolume(pickSound,fxVolume);
     }
+
     private void setClipVolume(Clip clip, float volume) {
         FloatControl gainControl = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
         float range = gainControl.getMaximum() - gainControl.getMinimum();

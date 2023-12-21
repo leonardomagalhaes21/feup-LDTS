@@ -2,7 +2,6 @@ package ldts.dino.controller.menu;
 
 import ldts.dino.Application;
 import ldts.dino.model.game.Game;
-import ldts.dino.model.game.elements.dino.Dino;
 import ldts.dino.model.menu.GameOverMenu;
 import ldts.dino.model.menu.MainMenu;
 import ldts.dino.model.menu.Menu;
@@ -27,6 +26,5 @@ public class GameOverController extends MenuController<GameOverMenu> {
 
     @Override
     public void backSelected(Application application) {
-
     }
 }

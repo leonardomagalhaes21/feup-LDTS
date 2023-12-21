@@ -15,11 +15,11 @@ public interface GUI {
 
     enum ACTION {UP, DOWN, NONE, QUIT, SELECT, BACK, JUMP, BOMB}
 
-    public void drawImage(Position pos, BufferedImage image);
+    void drawImage(Position pos, BufferedImage image);
 
-    public void drawImageFromFile(Position pos, String filename);
+    void drawImageFromFile(Position pos, String filename);
 
-    public void drawPixel(Position pos, String color);
+    void drawPixel(Position pos, String color);
 
-    public void drawText(Position position, String text, int size, String color);
+    void drawText(Position position, String text, int size, String color);
 }

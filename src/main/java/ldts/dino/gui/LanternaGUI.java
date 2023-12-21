@@ -12,7 +12,6 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import ldts.dino.utils.Position;
-
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -58,7 +57,6 @@ public class LanternaGUI implements GUI {
     public ACTION getNextAction() throws IOException {
         KeyStroke keyStroke = screen.pollInput();
         if (keyStroke == null) return ACTION.NONE;
-
         if (keyStroke.getKeyType() == KeyType.EOF) return ACTION.QUIT;
         if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q' ||
                 keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'Q') return ACTION.QUIT;
@@ -68,7 +66,6 @@ public class LanternaGUI implements GUI {
         if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
         if (keyStroke.getKeyType() == KeyType.ArrowRight) return ACTION.BOMB;
         if (keyStroke.getKeyType() == KeyType.Escape) return ACTION.BACK;
-
 
         return ACTION.NONE;
     }
@@ -93,7 +90,6 @@ public class LanternaGUI implements GUI {
         drawImage(pos, image);
     }
 
-
     @Override
     public void drawImage(Position pos, BufferedImage image) {
         String pink = "#000000";
@@ -106,6 +102,7 @@ public class LanternaGUI implements GUI {
             }
         }
     }
+
     @Override
     public void drawPixel(Position pos, String color) {
         TextGraphics tg = screen.newTextGraphics();
@@ -116,7 +113,6 @@ public class LanternaGUI implements GUI {
 
     public void paintBackground(String color) {
         TextGraphics tg = screen.newTextGraphics();
-        //background
         tg.setBackgroundColor(TextColor.Factory.fromString(color));
         tg.fillRectangle(new TerminalPosition(0, 0), new TerminalSize(WIDTH, HEIGHT + 1), ' ');
     }
@@ -127,7 +123,6 @@ public class LanternaGUI implements GUI {
         drawImage(position, textSprite);
     }
 
-
     @Override
     public void drawArea(Position position, int width, int height, String color) {
         TextGraphics tg = screen.newTextGraphics();
@@ -137,7 +132,6 @@ public class LanternaGUI implements GUI {
 
     private AWTTerminalFontConfiguration loadSquareFont() throws URISyntaxException, FontFormatException, IOException {
         URL resource = getClass().getClassLoader().getResource("fonts/square.ttf");
-        //TODO tentar mudar a fonte para outra
         File fontFile = new File(resource.toURI());
         Font font = Font.createFont(Font.TRUETYPE_FONT, fontFile);
 
@@ -145,7 +139,6 @@ public class LanternaGUI implements GUI {
         ge.registerFont(font);
 
         Font loadedFont = font.deriveFont(Font.PLAIN, FONT_SIZE);
-        AWTTerminalFontConfiguration fontConfig = AWTTerminalFontConfiguration.newInstance(loadedFont);
-        return fontConfig;
+        return AWTTerminalFontConfiguration.newInstance(loadedFont);
     }
 }

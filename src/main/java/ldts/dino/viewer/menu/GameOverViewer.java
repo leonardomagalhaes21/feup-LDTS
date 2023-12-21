@@ -3,7 +3,6 @@ package ldts.dino.viewer.menu;
 import ldts.dino.gui.GUI;
 import ldts.dino.gui.LanternaGUI;
 import ldts.dino.model.menu.GameOverMenu;
-import ldts.dino.model.menu.MainMenu;
 import ldts.dino.utils.Colors;
 import ldts.dino.utils.Position;
 

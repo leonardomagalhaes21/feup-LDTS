@@ -7,6 +7,7 @@ import ldts.dino.utils.Colors;
 import ldts.dino.utils.Position;
 
 public class ScoresViewer extends MenuViewer<ScoresMenu> {
+
     public ScoresViewer(ScoresMenu scoresMenu) {
         super(scoresMenu, new Position(LanternaGUI.WIDTH / 2 - 50, 100));
     }

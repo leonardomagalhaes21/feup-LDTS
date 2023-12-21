@@ -1,6 +1,5 @@
 package ldts.dino.controller.game;
 
-
 import ldts.dino.model.game.Game;
 import ldts.dino.model.game.creators.CollectableCreator;
 import ldts.dino.model.game.creators.ObstacleCreator;
@@ -27,7 +26,6 @@ public class ElementsFactory {
     public void step() {
         if (game.getClock() % 50 == 0) generateObstacle();
         else if (game.getClock() % 90  == 0) generateCollectable();
-
         game.updateClock();
     }
 }

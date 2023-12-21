@@ -23,6 +23,5 @@ public class MainMenuController extends MenuController<MainMenu> {
 
     @Override
     public void backSelected(Application application) {
-
     }
 }

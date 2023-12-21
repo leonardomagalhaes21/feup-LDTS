@@ -1,16 +1,13 @@
 package ldts.dino.model.game.elements;
 
-import ldts.dino.model.game.elements.obstacles.Obstacle;
 import ldts.dino.utils.Position;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public abstract class Element {
     private static int speed;
     private Position position;
     private int width;
     private int height;
+
     public Element(Position position) {
         this.position = position;
         this.width = 1;
@@ -62,10 +59,6 @@ public abstract class Element {
                 thisPosition.getY() + this.getHeight() >= elementPosition.getY();
 
         return xOverlap && yOverlap;
-    }
-
-    public static void incrementSpeed() {
-        speed++;
     }
 
     public int getSpeed() {

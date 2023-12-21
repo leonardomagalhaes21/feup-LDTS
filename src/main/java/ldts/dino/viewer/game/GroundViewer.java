@@ -1,7 +1,6 @@
 package ldts.dino.viewer.game;
 
 import ldts.dino.gui.GUI;
-import ldts.dino.model.game.elements.Element;
 import ldts.dino.model.game.elements.Ground;
 import ldts.dino.utils.Colors;
 

@@ -4,7 +4,6 @@ import ldts.dino.gui.LanternaGUI;
 import ldts.dino.model.game.elements.Ground;
 import ldts.dino.utils.Position;
 
-import java.util.List;
 import java.util.Random;
 
 public class Plane extends Obstacle {

@@ -31,6 +31,7 @@ public class MotionController extends Controller<Game> {
             }
         }
     }
+
     private void moveCollectables() {
         Iterator<Collectable> collectableIterator = getModel().getCollectables().iterator();
         while (collectableIterator.hasNext()) {
@@ -47,14 +48,17 @@ public class MotionController extends Controller<Game> {
             Obstacle.incrementSpeed();
             Collectable.incrementSpeed();
         }
+
         else if (getModel().getScore() == 500) {
             Obstacle.incrementSpeed();
             Collectable.incrementSpeed();
         }
+
         else if (getModel().getScore() == 1000) {
             Obstacle.incrementSpeed();
             Collectable.incrementSpeed();
         }
+
         else if (getModel().getScore() == 1500) {
             Obstacle.incrementSpeed();
             Collectable.incrementSpeed();
@@ -65,5 +69,4 @@ public class MotionController extends Controller<Game> {
             Collectable.incrementSpeed();
         }
     }
-
 }

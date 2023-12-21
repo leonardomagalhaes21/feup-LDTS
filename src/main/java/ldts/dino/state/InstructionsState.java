@@ -6,7 +6,7 @@ import ldts.dino.model.menu.InstructionsMenu;
 import ldts.dino.viewer.Viewer;
 import ldts.dino.viewer.menu.InstructionsViewer;
 
-public class InstructionsState extends State<InstructionsMenu>{
+public class InstructionsState extends State<InstructionsMenu> {
 
     public InstructionsState (InstructionsMenu model) {
         super(model);
