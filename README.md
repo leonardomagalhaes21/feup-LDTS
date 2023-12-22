@@ -377,7 +377,6 @@ it enables smooth transitions between forms based on user interactions.
 This approach ensures clearer code and easier future modifications or additions of new forms,
 making the overall game development process more straightforward.
 
-------
 
 ### CODE SMELLS
 
@@ -387,7 +386,6 @@ in the course to make it cleaner and more readable. Still, we could
 point out some possible code smells in the code, like long classes and
 methods, for example, in the Game class. 
 
-------
 
 ### TESTING
 
