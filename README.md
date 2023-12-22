@@ -384,7 +384,7 @@ We consider that the code is well-structured and easy to understand in
 general, using the design patterns and refactoring techniques we learned
 in the course to make it cleaner and more readable. Still, we could
 point out some possible code smells in the code, like long classes and
-methods, for example, in the Game class. 
+methods, for example, in the [Game](./src/main/java/ldts/dino/model/game/Game.java) class. 
 
 
 ### TESTING
