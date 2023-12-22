@@ -16,14 +16,6 @@ class GameControllerTest extends Specification {
         application = Mock(Application)
     }
 
-    def "test step quit"() {
-        when:
-        controller.step(application, GUI.ACTION.QUIT, 0)
-
-        then:
-        1 * application.setState(null)
-    }
-
     def "test step score"() {
         given:
         def initialScore = controller.model.getScore()

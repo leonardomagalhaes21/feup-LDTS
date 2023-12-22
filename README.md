@@ -202,7 +202,7 @@ as we want to create different types of buildings, cities and planes, and differ
 
 **Implementation**
 
-![abstractfactory.jpg](src%2Fmain%2Fresources%2Fuml%2Fabstractfactory.jpg)
+![abstractfactory.png](src%2Fmain%2Fresources%2Fuml%2Fabstractfactory.png)
 
 These classes could be found in the following files:
 
