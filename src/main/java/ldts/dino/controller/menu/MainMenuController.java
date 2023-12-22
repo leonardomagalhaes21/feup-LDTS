@@ -8,6 +8,7 @@ import ldts.dino.model.menu.ScoresMenu;
 import ldts.dino.state.GameState;
 import ldts.dino.state.InstructionsState;
 import ldts.dino.state.ScoresState;
+import ldts.dino.utils.SoundManager;
 
 public class MainMenuController extends MenuController<MainMenu> {
     public MainMenuController(MainMenu menu) {

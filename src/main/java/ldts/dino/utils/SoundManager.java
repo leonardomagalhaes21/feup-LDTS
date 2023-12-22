@@ -120,4 +120,8 @@ public class SoundManager {
         float gain = (range * volume) + gainControl.getMinimum();
         gainControl.setValue(gain);
     }
+
+    public void stopGameMusic() {
+        gameMusic.stop();
+    }
 }

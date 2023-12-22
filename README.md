@@ -35,8 +35,6 @@ Software Design and Testing Laboratory
 
 - Every feature has been implemented.
 
-<br/>
-
 ![menu.gif](src%2Fmain%2Fresources%2Fmockups%2Fmenu.gif)
 <br/>
 ![game.gif](src%2Fmain%2Fresources%2Fmockups%2Fgame.gif)
@@ -226,7 +224,7 @@ Using the Abstract Factory Method Pattern allows us to create different types of
 without having to specify their concrete classes, which makes it easier to add new types of elements
 in the future.
 
-#### CREATING DIFFERENT TYPES OF BUILDINGS (???)
+#### CREATING DIFFERENT TYPES OF BUILDINGS
 
 **Problem in Context**
 
@@ -243,11 +241,64 @@ of creating objects without specifying the exact class of object that will be cr
 
 **Implementation**
 
-!!! METER UML DO FACTORY METHOD !!!
+[Building](./src/main/java/ldts/dino/model/game/elements/obstacles/Building.java) class:
+```java
+public class Building extends Obstacle {
 
-These classes could be found in the following files:
+  private Building(Position position, int width, int height) {
+    super(position, width, height);
+  }
 
-- [Building](./src/main/java/ldts/dino/model/game/elements/obstacles/Building.java)
+  public static final class Factory {
+
+    private Factory() {
+    }
+
+    public static Building build(Position position, int height) {
+      return new Building(position, Building.WIDTH, height);
+    }
+
+    public static Building buildLarge(Position position) {
+      return build(position, LARGE_BUILDING_HEIGHT);
+    }
+
+    public static Building buildSmall(Position position) {
+      return build(position, SMALL_BUILDING_HEIGHT);
+    }
+  }
+}
+```
+
+[City](./src/main/java/ldts/dino/model/game/elements/obstacles/City.java) class:
+```java
+public class City extends Obstacle {
+    
+  public City() {
+    super(new Position(LanternaGUI.WIDTH, Ground.HEIGHT), 0, 0);
+    // ...
+    addBuildings();
+  }
+
+  public void addBuildings() {
+    int numberOfBuildings = random.nextInt(3) + 1;
+
+    boolean isSmall = random.nextBoolean();
+
+    for (int i = 0; i < numberOfBuildings; i++) {
+
+      Building newBuilding;
+      if (isSmall) {
+        Position nextPosition = new Position(lastPosition.getX(), Ground.HEIGHT - Building.SMALL_BUILDING_HEIGHT);
+        newBuilding = Building.Factory.buildSmall(nextPosition);
+      } else {
+        Position nextPosition = new Position(lastPosition.getX(), Ground.HEIGHT - Building.LARGE_BUILDING_HEIGHT);
+        newBuilding = Building.Factory.buildLarge(nextPosition);
+      }
+      // ...
+    }
+  }
+}
+```
 
 **Consequences**
 
@@ -330,7 +381,8 @@ making the overall game development process more straightforward.
 
 ### TESTING
 
-![coverage.png](src%2Fmain%2Fresources%2Ftests%2Fcoverage.png)
+![coverage1.png](src%2Fmain%2Fresources%2Ftests%2Fcoverage1.png)
+![coverage2.png](src%2Fmain%2Fresources%2Ftests%2Fcoverage2.png)
 
 ### SELF-EVALUATION
 

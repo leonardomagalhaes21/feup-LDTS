@@ -12,6 +12,8 @@ import com.googlecode.lanterna.terminal.DefaultTerminalFactory;
 import com.googlecode.lanterna.terminal.Terminal;
 import com.googlecode.lanterna.terminal.swing.AWTTerminalFontConfiguration;
 import ldts.dino.utils.Position;
+import ldts.dino.utils.SoundManager;
+
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -61,7 +63,8 @@ public class LanternaGUI implements GUI {
         if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q' ||
                 keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'Q') return ACTION.QUIT;
         if (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == ' ') return ACTION.JUMP;
-        if (keyStroke.getKeyType() == KeyType.ArrowDown) return ACTION.DOWN;
+        if (keyStroke.getKeyType() == KeyType.ArrowDown || (keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'q' ||
+                keyStroke.getKeyType() == KeyType.Character && keyStroke.getCharacter() == 'Q')) return ACTION.DOWN;
         if (keyStroke.getKeyType() == KeyType.ArrowUp) return ACTION.UP;
         if (keyStroke.getKeyType() == KeyType.Enter) return ACTION.SELECT;
         if (keyStroke.getKeyType() == KeyType.ArrowRight) return ACTION.BOMB;

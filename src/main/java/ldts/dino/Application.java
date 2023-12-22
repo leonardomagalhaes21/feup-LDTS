@@ -47,6 +47,7 @@ public class Application {
         gui.close();
     }
     public void exit() {
+        SoundManager.getInstance().stopGameMusic();
         this.state = null;
     }
 }

@@ -26,7 +26,7 @@ public class GameController extends Controller<Game> {
     public void step(Application application, GUI.ACTION action, long time) {
         switch (action) {
             case QUIT:
-                application.setState(null);
+                application.exit();
                 break;
             case BOMB:
                 if (getModel().getBombs() != 0 && !getModel().getObstacles().isEmpty()) {
