@@ -2,6 +2,7 @@
 .idea/
 build/
 gradle/
+out/
 gradlew.bat
 gradlew
 *.DS_Store
