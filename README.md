@@ -8,7 +8,7 @@ This project was developed by:
 - **Leonardo de Sousa Magalhães Teixeira** (up202208726)
 
 LDTS 2023/24 <br>
-Software Design and Testing Laboratory
+[Software Design and Testing Laboratory](https://sigarra.up.pt/feup/pt/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=520319)
 
 ### IMPLEMENTED FEATURES
 
